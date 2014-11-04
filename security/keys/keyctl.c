@@ -44,6 +44,35 @@ static int key_get_type_from_user(char *type,
 }
 
 /*
+ * strndup_user - duplicate an existing string from user space
+ * @s: The string to duplicate
+ * @n: Maximum number of bytes to copy, including the trailing NUL.
+ */
+char *mystrndup_user(const char __user *s, long n)
+{
+	char *p;
+	long length;
+
+	length = strnlen_user(s, n);
+printk("mystrndup_user: length = %d\n", length);
+
+	if (!length)
+		return ERR_PTR(-EFAULT);
+
+	if (length > n)
+		return ERR_PTR(-EINVAL);
+
+	p = memdup_user(s, length);
+
+	if (IS_ERR(p))
+		return p;
+
+	p[length - 1] = '\0';
+
+	return p;
+}
+
+/*
  * Extract the description of a new key from userspace and either add it as a
  * new key to the specified keyring or update a matching key in that keyring.
  *
@@ -78,7 +107,8 @@ SYSCALL_DEFINE5(add_key, const char __user *, _type,
 
 	description = NULL;
 	if (_description) {
-		description = strndup_user(_description, PAGE_SIZE);
+		description = mystrndup_user(_description, PAGE_SIZE);
+printk("strndup_user returned %p/%d\n", description, description);
 		if (IS_ERR(description)) {
 			ret = PTR_ERR(description);
 			goto error;
