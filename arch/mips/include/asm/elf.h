@@ -226,7 +226,7 @@ struct mips_elf_abiflags_v0 {
 	int __res = 1;							\
 	struct elfhdr *__h = (hdr);					\
 									\
-	if (__h->e_machine != EM_MIPS)					\
+	if (!mips_elf_check_machine(__h))				\
 		__res = 0;						\
 	if (__h->e_ident[EI_CLASS] != ELFCLASS32)			\
 		__res = 0;						\
@@ -257,7 +257,7 @@ struct mips_elf_abiflags_v0 {
 	int __res = 1;							\
 	struct elfhdr *__h = (hdr);					\
 									\
-	if (__h->e_machine != EM_MIPS)					\
+	if (!mips_elf_check_machine(__h))				\
 		__res = 0;						\
 	if (__h->e_ident[EI_CLASS] != ELFCLASS64)			\
 		__res = 0;						\
@@ -283,6 +283,11 @@ struct mips_elf_abiflags_v0 {
 #define ELF_ARCH	EM_MIPS
 
 #endif /* !defined(ELF_ARCH) */
+
+#define mips_elf_check_machine(x) ((x)->e_machine == EM_MIPS)
+
+#define vmcore_elf32_check_arch mips_elf_check_machine
+#define vmcore_elf64_check_arch mips_elf_check_machine
 
 struct mips_abi;
 
