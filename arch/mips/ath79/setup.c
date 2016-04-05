@@ -215,9 +215,11 @@ void __init plat_mem_setup(void)
 		ath79_detect_sys_type();
 		ath79_ddr_ctrl_init();
 
-	detect_memory_region(0, ATH79_MEM_SIZE_MIN, ATH79_MEM_SIZE_MAX);
-	/* OF machines should use the reset driver */
-	_machine_restart = ath79_restart;
+		detect_memory_region(0, ATH79_MEM_SIZE_MIN, ATH79_MEM_SIZE_MAX);
+
+		/* OF machines should use the reset driver */
+		_machine_restart = ath79_restart;
+	}	
 
 	_machine_halt = ath79_halt;
 	pm_power_off = ath79_halt;
