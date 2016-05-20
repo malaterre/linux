@@ -219,7 +219,7 @@ void __init plat_mem_setup(void)
 
 		/* OF machines should use the reset driver */
 		_machine_restart = ath79_restart;
-	}	
+	}
 
 	_machine_halt = ath79_halt;
 	pm_power_off = ath79_halt;

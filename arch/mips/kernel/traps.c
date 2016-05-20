@@ -1246,7 +1246,7 @@ static int enable_restore_fp_context(int msa)
 		err = init_fpu();
 		if (msa && !err) {
 			enable_msa();
-			_init_msa_upper();
+			init_msa_upper();
 			set_thread_flag(TIF_USEDMSA);
 			set_thread_flag(TIF_MSA_CTX_LIVE);
 		}
@@ -1309,7 +1309,7 @@ static int enable_restore_fp_context(int msa)
 	 */
 	prior_msa = test_and_set_thread_flag(TIF_MSA_CTX_LIVE);
 	if (!prior_msa && was_fpu_owner) {
-		_init_msa_upper();
+		init_msa_upper();
 
 		goto out;
 	}
@@ -1326,7 +1326,7 @@ static int enable_restore_fp_context(int msa)
 		 * of each vector register such that it cannot see data left
 		 * behind by another task.
 		 */
-		_init_msa_upper();
+		init_msa_upper();
 	} else {
 		/* We need to restore the vector context. */
 		restore_msa(current);
@@ -1353,7 +1353,6 @@ asmlinkage void do_cpu(struct pt_regs *regs)
 	unsigned long fcr31;
 	unsigned int cpid;
 	int status, err;
-	unsigned long __maybe_unused flags;
 	int sig;
 
 	prev_state = exception_enter();
@@ -1498,16 +1497,13 @@ asmlinkage void do_watch(struct pt_regs *regs)
 {
 	siginfo_t info = { .si_signo = SIGTRAP, .si_code = TRAP_HWBKPT };
 	enum ctx_state prev_state;
-	u32 cause;
 
 	prev_state = exception_enter();
 	/*
 	 * Clear WP (bit 22) bit of cause register so we don't loop
 	 * forever.
 	 */
-	cause = read_c0_cause();
-	cause &= ~(1 << 22);
-	write_c0_cause(cause);
+	clear_c0_cause(CAUSEF_WP);
 
 	/*
 	 * If the current thread has the watch registers loaded, save
@@ -1775,7 +1771,8 @@ asmlinkage void do_ftlb(void)
 
 	/* For the moment, report the problem and hang. */
 	if ((cpu_has_mips_r2_r6) &&
-	    ((current_cpu_data.processor_id & 0xff0000) == PRID_COMP_MIPS)) {
+	    (((current_cpu_data.processor_id & 0xff0000) == PRID_COMP_MIPS) ||
+	    ((current_cpu_data.processor_id & 0xff0000) == PRID_COMP_LOONGSON))) {
 		pr_err("FTLB error exception, cp0_ecc=0x%08x:\n",
 		       read_c0_ecc());
 		pr_err("cp0_errorepc == %0*lx\n", field, read_c0_errorepc());
@@ -2139,7 +2136,7 @@ void per_cpu_trap_init(bool is_boot_cpu)
 	}
 
 	if (!cpu_data[cpu].asid_cache)
-		cpu_data[cpu].asid_cache = ASID_FIRST_VERSION;
+		cpu_data[cpu].asid_cache = asid_first_version(cpu);
 
 	atomic_inc(&init_mm.mm_count);
 	current->active_mm = &init_mm;
