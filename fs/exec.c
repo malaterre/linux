@@ -866,7 +866,8 @@ int kernel_read_file(struct file *file, void **buf, loff_t *size,
 		goto out;
 	}
 
-	*buf = vmalloc(i_size);
+	if (id != READING_FIRMWARE_PREALLOC_BUFFER)
+		*buf = vmalloc(i_size);
 	if (!*buf) {
 		ret = -ENOMEM;
 		goto out;
@@ -897,8 +898,10 @@ int kernel_read_file(struct file *file, void **buf, loff_t *size,
 
 out_free:
 	if (ret < 0) {
-		vfree(*buf);
-		*buf = NULL;
+		if (id != READING_FIRMWARE_PREALLOC_BUFFER) {
+			vfree(*buf);
+			*buf = NULL;
+		}
 	}
 
 out:
@@ -1411,7 +1414,7 @@ static void bprm_fill_uid(struct linux_binprm *bprm)
 	bprm->cred->euid = current_euid();
 	bprm->cred->egid = current_egid();
 
-	if (bprm->file->f_path.mnt->mnt_flags & MNT_NOSUID)
+	if (!mnt_may_suid(bprm->file->f_path.mnt))
 		return;
 
 	if (task_no_new_privs(current))
