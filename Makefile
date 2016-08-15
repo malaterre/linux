@@ -1,7 +1,7 @@
 VERSION = 4
-PATCHLEVEL = 7
+PATCHLEVEL = 8
 SUBLEVEL = 0
-EXTRAVERSION =
+EXTRAVERSION = -rc1
 NAME = Psychotic Stoned Sheep
 
 # *DOCUMENTATION*
@@ -621,7 +621,6 @@ include arch/$(SRCARCH)/Makefile
 
 KBUILD_CFLAGS	+= $(call cc-option,-fno-delete-null-pointer-checks,)
 KBUILD_CFLAGS	+= $(call cc-disable-warning,maybe-uninitialized,)
-KBUILD_CFLAGS	+= $(call cc-disable-warning,frame-address,)
 
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os
@@ -1433,7 +1432,7 @@ $(help-board-dirs): help-%:
 
 # Documentation targets
 # ---------------------------------------------------------------------------
-DOC_TARGETS := xmldocs sgmldocs psdocs pdfdocs htmldocs mandocs installmandocs epubdocs cleandocs cleanmediadocs
+DOC_TARGETS := xmldocs sgmldocs psdocs pdfdocs htmldocs mandocs installmandocs epubdocs cleandocs
 PHONY += $(DOC_TARGETS)
 $(DOC_TARGETS): scripts_basic FORCE
 	$(Q)$(MAKE) $(build)=scripts build_docproc build_check-lc_ctype
