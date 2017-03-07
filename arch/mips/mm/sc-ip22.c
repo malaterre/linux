@@ -45,7 +45,7 @@ static inline void indy_sc_wipe(unsigned long first, unsigned long last)
 	"	# Required because binutils 2.25 will happily accept	\n"
 	"	# 64 bit instructions in .set mips3 mode but puke on	\n"
 	"	# 64 bit constants when generating 32 bit ELF		\n"
-		#							\n"
+	"	#							\n"
 	"	lui	$1,0x9000					\n"
 	"	dsll	$1,$1,0x10					\n"
 	"	ori	$1,$1,0x8000					\n"
