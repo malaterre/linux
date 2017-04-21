@@ -2672,3 +2672,4 @@ static struct platform_driver sbmac_driver = {
 };
 
 module_platform_driver(sbmac_driver);
+MODULE_LICENSE("GPL");
