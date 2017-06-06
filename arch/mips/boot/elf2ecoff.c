@@ -346,12 +346,19 @@ int main(int argc, char *argv[])
 
 	for (i = 0; i < ex.e_phnum; i++) {
 		/* Section types we can ignore... */
+<<<<<<< HEAD
 		switch (ph[i].p_type) {
 		case PT_NULL:
 		case PT_NOTE:
 		case PT_PHDR:
 		case PT_MIPS_REGINFO:
 		case PT_MIPS_ABIFLAGS:
+=======
+		if (ph[i].p_type == PT_NULL || ph[i].p_type == PT_NOTE ||
+		    ph[i].p_type == PT_PHDR
+		    || ph[i].p_type == PT_MIPS_REGINFO
+		    || ph[i].p_type == PT_MIPS_ABIFLAGS)
+>>>>>>> 875e3854494bee8b1d5478ee2d39e16ed982addc
 			continue;
 
 		case PT_LOAD:
