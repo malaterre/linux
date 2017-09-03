@@ -1,0 +1,20 @@
+Ingenic jz4780 RNG driver
+
+Required properties:
+- compatible : Should be "ingenic,jz4780-rng"
+
+Example:
+
+cgu: jz4780-cgu@10000000 {
+	compatible = "ingenic,jz4780-cgu", "syscon";
+	reg = <0x10000000 0x100>;
+
+	clocks = <&ext>, <&rtc>;
+	clock-names = "ext", "rtc";
+
+	#clock-cells = <1>;
+
+	rng: rng@d8 {
+		compatible = "ingenic,jz4780-rng";
+	};
+};
