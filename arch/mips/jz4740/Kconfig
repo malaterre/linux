@@ -28,6 +28,14 @@ config MACH_JZ4770
 	select SYS_HAS_CPU_MIPS32_R2
 	select SYS_SUPPORTS_HIGHMEM
 
+config FIT_IMAGE_FDT_CI20
+	bool "Include FDT for MIPS CI20 boards"
+	help
+	  Enable this to include the FDT for the MIPS Boston development board
+	  from Imagination Technologies in the FIT kernel image. You should
+	  enable this if you wish to boot on a MIPS Boston board, as it is
+	  expected by the bootloader.
+
 config MACH_JZ4780
 	bool
 	select MIPS_CPU_SCACHE

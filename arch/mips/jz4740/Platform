@@ -2,3 +2,6 @@ platform-$(CONFIG_MACH_INGENIC)	+= jz4740/
 cflags-$(CONFIG_MACH_INGENIC)	+= -I$(srctree)/arch/mips/include/asm/mach-jz4740
 load-$(CONFIG_MACH_INGENIC)	+= 0xffffffff80010000
 zload-$(CONFIG_MACH_INGENIC)	+= 0xffffffff80600000
+all-$(CONFIG_MACH_INGENIC)	:= vmlinux.gz.itb
+its-y					:= vmlinux.its.S
+its-$(CONFIG_FIT_IMAGE_FDT_CI20)	+= board-ci20.its.S
