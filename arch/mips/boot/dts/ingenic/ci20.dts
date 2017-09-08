@@ -6,6 +6,7 @@
 #include <dt-bindings/gpio/gpio.h>
 
 / {
+	model = "Creator CI20";
 	compatible = "img,ci20", "ingenic,jz4780";
 
 	aliases {
