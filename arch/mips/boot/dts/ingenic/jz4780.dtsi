@@ -36,17 +36,28 @@
 		clock-frequency = <32768>;
 	};
 
-	cgu: jz4780-cgu@10000000 {
-		compatible = "ingenic,jz4780-cgu", "syscon";
+	cgublock: jz4780-cgublock@10000000 {
+		compatible = "simple-bus", "syscon";
+
+		#address-cells = <1>;
+		#size-cells = <1>;
+
 		reg = <0x10000000 0x100>;
+		ranges;
 
-		clocks = <&ext>, <&rtc>;
-		clock-names = "ext", "rtc";
+		cgu: jz4780-cgu@10000000 {
+			compatible = "ingenic,jz4780-cgu";
+			reg = <0x10000000 0x100>;
 
-		#clock-cells = <1>;
+			clocks = <&ext>, <&rtc>;
+			clock-names = "ext", "rtc";
+
+			#clock-cells = <1>;
+		};
 
 		rng: rng@d8 {
 			compatible = "ingenic,jz4780-rng";
+			reg = <0x100000d8 0x8>;
 		};
 	};
 
