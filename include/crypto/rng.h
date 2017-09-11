@@ -27,7 +27,7 @@ struct crypto_rng;
  *		random number generator requires a seed for setting
  *		up a new state, the seed must be provided by the
  *		consumer while invoking this function. The required
- *		size of the seed is defined with @seedsize .
+ *		size of the seed is defined with @seedsize. Optional.
  * @set_ent:	Set entropy that would otherwise be obtained from
  *		entropy source.  Internal use only.
  * @seedsize:	The seed size required for a random number generator
