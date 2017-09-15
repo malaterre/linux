@@ -35,6 +35,7 @@ struct jz4780_rng_ctx {
 struct jz4780_rng {
 	struct device *dev;
 	struct regmap *regmap;
+	u32 seed;
 };
 
 static struct jz4780_rng *jz4780_rng;
@@ -56,6 +57,17 @@ static int jz4780_rng_writel(struct jz4780_rng *rng, u32 val, u32 offset)
 	return regmap_write(rng->regmap, offset, val);
 }
 
+static int jz4780_rng_seed(struct crypto_rng *tfm, const u8 *seed,
+			   unsigned int slen)
+{
+	struct jz4780_rng_ctx *ctx = crypto_rng_ctx(tfm);
+	struct jz4780_rng *rng = ctx->rng;
+
+	memcpy((void *)&rng->seed, seed, slen);
+
+	return 0;
+}
+
 static int jz4780_rng_generate(struct crypto_rng *tfm,
 			       const u8 *src, unsigned int slen,
 			       u8 *dst, unsigned int dlen)
@@ -70,6 +82,10 @@ static int jz4780_rng_generate(struct crypto_rng *tfm,
 	 * read continuously from this device.
 	 */
 	jz4780_rng_writel(rng, 1, REG_RNG_CTRL);
+
+	/* Write seed */
+	jz4780_rng_writel(rng, rng->seed, REG_RNG_DATA);
+
 	while (dlen >= 4) {
 		data = jz4780_rng_readl(rng, REG_RNG_DATA);
 		memcpy((void *)dst, (void *)&data, 4);
@@ -79,9 +95,16 @@ static int jz4780_rng_generate(struct crypto_rng *tfm,
 	};
 
 	if (dlen > 0) {
+		udelay(20);
 		data = jz4780_rng_readl(rng, REG_RNG_DATA);
 		memcpy((void *)dst, (void *)&data, dlen);
 	}
+
+	udelay(20);
+	/* Update the seed */
+	data = jz4780_rng_readl(rng, REG_RNG_DATA);
+	rng->seed = data;
+
 	jz4780_rng_writel(rng, 0, REG_RNG_CTRL);
 
 	return 0;
@@ -98,6 +121,8 @@ static int jz4780_rng_kcapi_init(struct crypto_tfm *tfm)
 
 static struct rng_alg jz4780_rng_alg = {
 	.generate		= jz4780_rng_generate,
+	.seed			= jz4780_rng_seed,
+	.seedsize		= 4,
 	.base			= {
 		.cra_name		= "stdrng",
 		.cra_driver_name	= "jz4780_rng",
