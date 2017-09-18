@@ -36,7 +36,7 @@
 		clock-frequency = <32768>;
 	};
 
-	cgublock: jz4780-cgublock@10000000 {
+	cgublock {
 		compatible = "simple-bus", "syscon";
 
 		#address-cells = <1>;
