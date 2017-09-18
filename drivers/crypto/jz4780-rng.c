@@ -87,23 +87,25 @@ static int jz4780_rng_generate(struct crypto_rng *tfm,
 	jz4780_rng_writel(rng, rng->seed, REG_RNG_DATA);
 
 	while (dlen >= 4) {
+		usleep_range(5, 50);
 		data = jz4780_rng_readl(rng, REG_RNG_DATA);
 		memcpy((void *)dst, (void *)&data, 4);
 		dlen -= 4;
 		dst += 4;
-		udelay(20);
 	};
 
 	if (dlen > 0) {
-		udelay(20);
+		usleep_range(5, 50);
 		data = jz4780_rng_readl(rng, REG_RNG_DATA);
 		memcpy((void *)dst, (void *)&data, dlen);
 	}
 
-	udelay(20);
+#if 0
+	usleep_range(5, 50);
 	/* Update the seed */
 	data = jz4780_rng_readl(rng, REG_RNG_DATA);
 	rng->seed = data;
+#endif
 
 	jz4780_rng_writel(rng, 0, REG_RNG_CTRL);
 
