@@ -241,6 +241,14 @@
 		status = "disabled";
 	};
 
+	efuse: efuse@134100D0 {
+		compatible = "ingenic,jz4780-otp";
+		reg = <0x134100d0 0xff>;
+
+		clocks = <&cgu JZ4780_CLK_AHB2>;
+		clock-names = "bus_clk";
+	};
+
 	bch: bch@134d0000 {
 		compatible = "ingenic,jz4780-bch";
 		reg = <0x134d0000 0x10000>;
