@@ -39,88 +39,88 @@
 			compatible = "fixed-clock";
 			clock-frequency = <32768>;
 		};
-		pll13: pll13@13M {
+		pll13: pll13@13m {
 			#clock-cells = <0>;
 			compatible = "fixed-clock";
 			clock-frequency = <13000000>;
 		};
 		/* Slow bridge clocks under PLL13 */
-		slow_clk: slow_clk@13M {
+		slow_clk: slow_clk@13m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <0>; /* Slow */
 			clock-id = <0>;
 			clocks = <&pll13>;
 		};
-		uart0_clk: uart0_clk@13M {
+		uart0_clk: uart0_clk@13m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <0>; /* Slow */
 			clock-id = <1>;
 			clocks = <&slow_clk>;
 		};
-		gpio_clk: gpio_clk@13M {
+		gpio_clk: gpio_clk@13m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <0>; /* Slow */
 			clock-id = <4>;
 			clocks = <&slow_clk>;
 		};
-		rtc_clk: rtc_clk@13M {
+		rtc_clk: rtc_clk@13m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <0>; /* Slow */
 			clock-id = <6>;
 			clocks = <&slow_clk>;
 		};
-		apptimer_clk: app_tmr_clk@13M {
+		apptimer_clk: app_tmr_clk@13m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <0>; /* Slow */
 			clock-id = <7>;
 			clocks = <&slow_clk>;
 		};
-		acc_tmr_clk@13M {
+		acc_tmr_clk@13m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <0>; /* Slow */
 			clock-id = <8>;
 			clocks = <&slow_clk>;
 		};
-		pll208: pll208@208M {
+		pll208: pll208@208m {
 			#clock-cells = <0>;
 			compatible = "fixed-clock";
 			clock-frequency = <208000000>;
 		};
-		app208: app_208_clk@208M {
+		app208: app_208_clk@208m {
 			#clock-cells = <0>;
 			compatible = "fixed-factor-clock";
 			clock-div = <1>;
 			clock-mult = <1>;
 			clocks = <&pll208>;
 		};
-		cpu_clk@208M {
+		cpu_clk@208m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <2>; /* Rest */
 			clock-id = <3>;
 			clocks = <&app208>;
 		};
-		app104: app_104_clk@104M {
+		app104: app_104_clk@104m {
 			#clock-cells = <0>;
 			compatible = "fixed-factor-clock";
 			clock-div = <2>;
 			clock-mult = <1>;
 			clocks = <&pll208>;
 		};
-		semi_clk@104M {
+		semi_clk@104m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <2>; /* Rest */
 			clock-id = <9>;
 			clocks = <&app104>;
 		};
-		app52: app_52_clk@52M {
+		app52: app_52_clk@52m {
 			#clock-cells = <0>;
 			compatible = "fixed-factor-clock";
 			clock-div = <4>;
@@ -128,49 +128,49 @@
 			clocks = <&pll208>;
 		};
 		/* AHB subsystem clocks */
-		ahb_clk: ahb_subsys_clk@52M {
+		ahb_clk: ahb_subsys_clk@52m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <2>; /* Rest */
 			clock-id = <10>;
 			clocks = <&app52>;
 		};
-		intcon_clk@52M {
+		intcon_clk@52m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <2>; /* Rest */
 			clock-id = <12>;
 			clocks = <&ahb_clk>;
 		};
-		emif_clk@52M {
+		emif_clk@52m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <2>; /* Rest */
 			clock-id = <5>;
 			clocks = <&ahb_clk>;
 		};
-		dmac_clk: dmac_clk@52M {
+		dmac_clk: dmac_clk@52m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <2>; /* Rest */
 			clock-id = <4>;
 			clocks = <&app52>;
 		};
-		fsmc_clk: fsmc_clk@52M {
+		fsmc_clk: fsmc_clk@52m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <2>; /* Rest */
 			clock-id = <6>;
 			clocks = <&app52>;
 		};
-		xgam_clk: xgam_clk@52M {
+		xgam_clk: xgam_clk@52m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <2>; /* Rest */
 			clock-id = <8>;
 			clocks = <&app52>;
 		};
-		app26: app_26_clk@26M {
+		app26: app_26_clk@26m {
 			#clock-cells = <0>;
 			compatible = "fixed-factor-clock";
 			clock-div = <2>;
@@ -178,28 +178,28 @@
 			clocks = <&app52>;
 		};
 		/* Fast bridge  clocks */
-		fast_clk: fast_clk@26M {
+		fast_clk: fast_clk@26m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <1>; /* Fast */
 			clock-id = <0>;
 			clocks = <&app26>;
 		};
-		i2c0_clk: i2c0_clk@26M {
+		i2c0_clk: i2c0_clk@26m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <1>; /* Fast */
 			clock-id = <1>;
 			clocks = <&fast_clk>;
 		};
-		i2c1_clk: i2c1_clk@26M {
+		i2c1_clk: i2c1_clk@26m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <1>; /* Fast */
 			clock-id = <2>;
 			clocks = <&fast_clk>;
 		};
-		mmc_pclk: mmc_p_clk@26M {
+		mmc_pclk: mmc_p_clk@26m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <1>; /* Fast */
@@ -211,7 +211,7 @@
 			compatible = "stericsson,u300-syscon-mclk";
 			clocks = <&mmc_pclk>;
 		};
-		spi_clk: spi_p_clk@26M {
+		spi_clk: spi_p_clk@26m {
 			#clock-cells = <0>;
 			compatible = "stericsson,u300-syscon-clk";
 			clock-type = <1>; /* Fast */
