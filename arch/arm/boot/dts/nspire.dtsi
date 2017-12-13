@@ -24,7 +24,7 @@
 		reg = <0x00000000 0x80000>;
 	};
 
-	sram: sram@A4000000 {
+	sram: sram@a4000000 {
 		device = "memory";
 		reg = <0xA4000000 0x20000>;
 	};
@@ -75,11 +75,11 @@
 		#size-cells = <1>;
 		ranges;
 
-		spi: spi@A9000000 {
+		spi: spi@a9000000 {
 			reg = <0xA9000000 0x1000>;
 		};
 
-		usb0: usb@B0000000 {
+		usb0: usb@b0000000 {
 			compatible = "lsi,zevio-usb";
 			reg = <0xB0000000 0x1000>;
 			interrupts = <8>;
@@ -88,13 +88,13 @@
 			vbus-supply = <&vbus_reg>;
 		};
 
-		usb1: usb@B4000000 {
+		usb1: usb@b4000000 {
 			reg = <0xB4000000 0x1000>;
 			interrupts = <9>;
 			status = "disabled";
 		};
 
-		lcd: lcd@C0000000 {
+		lcd: lcd@c0000000 {
 			compatible = "arm,pl111", "arm,primecell";
 			reg = <0xC0000000 0x1000>;
 			interrupts = <21>;
@@ -103,16 +103,16 @@
 			clock-names = "apb_pclk";
 		};
 
-		adc: adc@C4000000 {
+		adc: adc@c4000000 {
 			reg = <0xC4000000 0x1000>;
 			interrupts = <11>;
 		};
 
-		tdes: crypto@C8010000 {
+		tdes: crypto@c8010000 {
 			reg = <0xC8010000 0x1000>;
 		};
 
-		sha256: crypto@CC000000 {
+		sha256: crypto@cc000000 {
 			reg = <0xCC000000 0x1000>;
 		};
 
@@ -141,13 +141,13 @@
 				interrupts = <1>;
 			};
 
-			timer0: timer@900C0000 {
+			timer0: timer@900c0000 {
 				reg = <0x900C0000 0x1000>;
 
 				clocks = <&timer_clk>;
 			};
 
-			timer1: timer@900D0000 {
+			timer1: timer@900d0000 {
 				reg = <0x900D0000 0x1000>;
 				interrupts = <19>;
 
@@ -165,16 +165,16 @@
 				interrupts = <4>;
 			};
 
-			misc: misc@900A0000 {
+			misc: misc@900a0000 {
 				reg = <0x900A0000 0x1000>;
 			};
 
-			pwr: pwr@900B0000 {
+			pwr: pwr@900b0000 {
 				reg = <0x900B0000 0x1000>;
 				interrupts = <15>;
 			};
 
-			keypad: input@900E0000 {
+			keypad: input@900e0000 {
 				compatible = "ti,nspire-keypad";
 				reg = <0x900E0000 0x1000>;
 				interrupts = <16>;
@@ -185,7 +185,7 @@
 				clocks = <&apb_pclk>;
 			};
 
-			contrast: contrast@900F0000 {
+			contrast: contrast@900f0000 {
 				reg = <0x900F0000 0x1000>;
 			};
 
