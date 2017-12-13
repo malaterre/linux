@@ -282,7 +282,7 @@
 			ti,davinci-gpio-unbanked = <32>;
 		};
 
-		aemif: aemif@21000A00 {
+		aemif: aemif@21000a00 {
 			compatible = "ti,keystone-aemif", "ti,davinci-aemif";
 			#address-cells = <2>;
 			#size-cells = <1>;
