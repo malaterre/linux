@@ -126,7 +126,7 @@
 				read-only;
 			};
 
-			uboot_env@3F000 {
+			uboot_env@3f000 {
 				reg = <0x3F000 0x1000>;
 			};
 		};
