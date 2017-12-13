@@ -47,14 +47,14 @@
 	 */
 
 	/* The codec chrystal operates at 24.576 MHz */
-	xtal_codec: xtal24.576@24.576M {
+	xtal_codec: xtal24.576@24.576m {
 		#clock-cells = <0>;
 		compatible = "fixed-clock";
 		clock-frequency = <24576000>;
 	};
 
 	/* The chrystal is divided by 2 by the codec for the AACI bit clock */
-	aaci_bitclk: aaci_bitclk@12.288M {
+	aaci_bitclk: aaci_bitclk@12.288m {
 		#clock-cells = <0>;
 		compatible = "fixed-factor-clock";
 		clock-div = <2>;
@@ -63,14 +63,14 @@
 	};
 
 	/* This is a 25MHz chrystal on the base board */
-	xtal25mhz: xtal25mhz@25M {
+	xtal25mhz: xtal25mhz@25m {
 		#clock-cells = <0>;
 		compatible = "fixed-clock";
 		clock-frequency = <25000000>;
 	};
 
 	/* The UART clock is 14.74 MHz divided from 25MHz by an ICS525 */
-	uartclk: uartclk@14.74M {
+	uartclk: uartclk@14.74m {
 		#clock-cells = <0>;
 		compatible = "fixed-clock";
 		clock-frequency = <14745600>;
@@ -85,14 +85,14 @@
 
 	core-module@10000000 {
 		/* 24 MHz chrystal on the core module */
-		cm24mhz: cm24mhz@24M {
+		cm24mhz: cm24mhz@24m {
 			#clock-cells = <0>;
 			compatible = "fixed-clock";
 			clock-frequency = <24000000>;
 		};
 
 		/* Oscillator on the core module, clocks the CPU core */
-		cmcore: cmosc@24M {
+		cmcore: cmosc@24m {
 			compatible = "arm,syscon-icst525-integratorcp-cm-core";
 			#clock-cells = <0>;
 			lock-offset = <0x14>;
@@ -101,7 +101,7 @@
 		};
 
 		/* Oscillator on the core module, clocks the memory bus */
-		cmmem: cmosc@24M {
+		cmmem: cmosc@24m {
 			compatible = "arm,syscon-icst525-integratorcp-cm-mem";
 			#clock-cells = <0>;
 			lock-offset = <0x14>;
@@ -110,7 +110,7 @@
 		};
 
 		/* Auxilary oscillator on the core module, clocks the CLCD */
-		auxosc: auxosc@24M {
+		auxosc: auxosc@24m {
 			compatible = "arm,syscon-icst525";
 			#clock-cells = <0>;
 			lock-offset = <0x14>;
@@ -119,7 +119,7 @@
 		};
 
 		/* The KMI clock is the 24 MHz oscillator divided to 8MHz */
-		kmiclk: kmiclk@1M {
+		kmiclk: kmiclk@1m {
 			#clock-cells = <0>;
 			compatible = "fixed-factor-clock";
 			clock-div = <3>;
@@ -128,7 +128,7 @@
 		};
 
 		/* The timer clock is the 24 MHz oscillator divided to 1MHz */
-		timclk: timclk@1M {
+		timclk: timclk@1m {
 			#clock-cells = <0>;
 			compatible = "fixed-factor-clock";
 			clock-div = <24>;

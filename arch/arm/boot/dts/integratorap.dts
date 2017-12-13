@@ -56,7 +56,7 @@
 	};
 
 	/* 24 MHz chrystal on the Integrator/AP development board */
-	xtal24mhz: xtal24mhz@24M {
+	xtal24mhz: xtal24mhz@24m {
 		#clock-cells = <0>;
 		compatible = "fixed-clock";
 		clock-frequency = <24000000>;
@@ -71,7 +71,7 @@
 	};
 
 	/* The UART clock is 14.74 MHz divided by an ICS525 */
-	uartclk: uartclk@14.74M {
+	uartclk: uartclk@14.74m {
 		#clock-cells = <0>;
 		compatible = "fixed-clock";
 		clock-frequency = <14745600>;
@@ -80,14 +80,14 @@
 
 	core-module@10000000 {
 		/* 24 MHz chrystal on the core module */
-		cm24mhz: cm24mhz@24M {
+		cm24mhz: cm24mhz@24m {
 			#clock-cells = <0>;
 			compatible = "fixed-clock";
 			clock-frequency = <24000000>;
 		};
 
 		/* Oscillator on the core module, clocks the CPU core */
-		cmosc: cmosc@24M {
+		cmosc: cmosc@24m {
 			compatible = "arm,syscon-icst525-integratorap-cm";
 			#clock-cells = <0>;
 			lock-offset = <0x14>;
@@ -96,7 +96,7 @@
 		};
 
 		/* Auxilary oscillator on the core module, 32.369MHz at boot */
-		auxosc: auxosc@24M {
+		auxosc: auxosc@24m {
 			compatible = "arm,syscon-icst525";
 			#clock-cells = <0>;
 			lock-offset = <0x14>;
@@ -116,7 +116,7 @@
 		 * SYSCLK clocks PCIv3 bridge, system controller and the
 		 * logic modules.
 		 */
-		sysclk: apsys@24M {
+		sysclk: apsys@24m {
 			compatible = "arm,syscon-icst525-integratorap-sys";
 			#clock-cells = <0>;
 			lock-offset = <0x1c>;
@@ -125,7 +125,7 @@
 		};
 
 		/* One-bit control for the PCI bus clock (33 or 25 MHz) */
-		pciclk: pciclk@24M {
+		pciclk: pciclk@24m {
 			compatible = "arm,syscon-icst525-integratorap-pci";
 			#clock-cells = <0>;
 			lock-offset = <0x1c>;
