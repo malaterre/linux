@@ -76,7 +76,7 @@
 			     <0x10302000 0x0100>;
 		};
 
-		pmu_regulator: pmu_regulator@10E30020 {
+		pmu_regulator: pmu_regulator@10e30020 {
 			compatible = "sirf,atlas7-pmu-ldo";
 			reg = <0x10E30020 0x4>;
 			ldo: ldo {
@@ -84,7 +84,7 @@
 			};
 		};
 
-		atlas7_codec: atlas7_codec@10E30000 {
+		atlas7_codec: atlas7_codec@10e30000 {
 			#sound-dai-cells = <0>;
 			compatible = "sirf,atlas7-codec";
 			reg = <0x10E30000 0x400>;
@@ -92,7 +92,7 @@
 			ldo-supply = <&ldo>;
 		};
 
-		atlas7_iacc: atlas7_iacc@10D01000 {
+		atlas7_iacc: atlas7_iacc@10d01000 {
 			#sound-dai-cells = <0>;
 			compatible = "sirf,atlas7-iacc";
 			reg = <0x10D01000 0x100>;
@@ -1170,7 +1170,7 @@
 			#address-cells = <1>;
 			#size-cells = <1>;
 			ranges = <0x13240000 0x13240000 0x00010000>;
-			pmipc@0x13240000 {
+			pmipc@13240000 {
 				compatible = "sirf,atlas7-pmipc";
 				reg = <0x13240000 0x00010000>;
 			};
@@ -1265,7 +1265,7 @@
 				#dma-cells = <1>;
 			};
 
-			gnssmfw@0x18100000 {
+			gnssmfw@18100000 {
 				compatible = "sirf,nocfw-gnssm";
 				reg = <0x18100000 0x3000>;
 			};
@@ -1374,7 +1374,7 @@
 				<0x13010000 0x13010000 0x1400>,
 				<0x13010800 0x13010800 0x100>,
 				<0x13011000 0x13011000 0x100>;
-			gpum@0x13000000 {
+			gpum@13000000 {
 				compatible = "sirf,nocfw-gpum";
 				reg = <0x13000000 0x3000>;
 			};
@@ -1396,7 +1396,7 @@
 				#dma-cells = <1>;
 				#dma-channels = <1>;
 			};
-			sdr@0x13010000 {
+			sdr@13010000 {
 				compatible = "sirf,atlas7-sdr";
 				reg = <0x13010000 0x1400>;
 				interrupts = <0 7 0>,
@@ -1432,7 +1432,7 @@
 				clocks = <&car 102>;
 			};
 
-			mediam@170A0000 {
+			mediam@170a0000 {
 				compatible = "sirf,nocfw-mediam";
 				reg = <0x170A0000 0x3000>;
 			};
@@ -1740,7 +1740,7 @@
 				clocks = <&car 54>;
 			};
 
-			audiom@10ED0000 {
+			audiom@10ed0000 {
 				compatible = "sirf,nocfw-audiom";
 				reg = <0x10ED0000 0x3000>;
 				interrupts = <0 102 0>;
@@ -1780,7 +1780,7 @@
 				interrupts = <0 105 0>;
 			};
 
-			memory-controller@0x10800000 {
+			memory-controller@10800000 {
 				compatible = "sirf,atlas7-memc";
 				reg = <0x10800000 0x2000>;
 			};
@@ -1887,7 +1887,7 @@
 				};
 			};
 
-			qspi: flash@188B0000 {
+			qspi: flash@188b0000 {
 				cell-index = <0>;
 				compatible = "sirf,atlas7-qspi-nor";
 				reg = <0x188B0000 0x10000>;
@@ -1896,7 +1896,7 @@
 				#size-cells = <0>;
 			};
 
-			retain@0x188D0000 {
+			retain@188d0000 {
 				compatible = "sirf,atlas7-retain";
 				reg = <0x188D0000 0x1000>;
 			};
