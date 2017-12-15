@@ -1,0 +1,30 @@
+language: c
+compiler:
+  - gcc
+
+sudo: true
+dist: trusty
+
+addons:
+    apt:
+      packages:
+         - bc
+         - gcc-mips-linux-gnu
+
+git:
+  depth: 1
+
+before_script:
+    # https://lists.ozlabs.org/pipermail/linuxppc-dev/2017-December/166830.html
+    - rm -f .cache.mk
+
+script:
+    - make ARCH=mips ci20_defconfig
+    - make -j2 ARCH=mips CROSS_COMPILE=mips-linux-gnu- uImage W=1
+
+notifications:
+    email:
+      recipients:
+            - malat@debian.org
+      on_success: always
+      on_failure: always
