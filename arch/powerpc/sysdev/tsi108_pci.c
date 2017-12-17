@@ -196,6 +196,7 @@ int __init tsi108_setup_pci(struct device_node *dev, u32 cfg_phys, int primary)
 
 	/* Fetch host bridge registers address */
 	has_address = (of_address_to_resource(dev, 0, &rsrc) == 0);
+  (void)has_address;
 
 	/* Get bus range if any */
 	bus_range = of_get_property(dev, "bus-range", &len);
@@ -205,11 +206,8 @@ int __init tsi108_setup_pci(struct device_node *dev, u32 cfg_phys, int primary)
 	}
 
 	hose = pcibios_alloc_controller(dev);
-
-	if (!hose) {
-		printk("PCI Host bridge init failed\n");
+	if (!hose)
 		return -ENOMEM;
-	}
 
 	hose->first_busno = bus_range ? bus_range[0] : 0;
 	hose->last_busno = bus_range ? bus_range[1] : 0xff;

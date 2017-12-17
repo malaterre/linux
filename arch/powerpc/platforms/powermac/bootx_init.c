@@ -570,6 +570,7 @@ void __init bootx_init(unsigned long r3, unsigned long r4)
 		for (ptr = ((unsigned long) &_stext) & PAGE_MASK;
 		     ptr < (unsigned long)bi + space; ptr += PAGE_SIZE)
 			x = *(volatile unsigned long *)ptr;
+    (void)x;
 	}
 
 	/* Ok, now we need to generate a flattened device-tree to pass

@@ -326,6 +326,7 @@ static void uninorth_install_pfunc(void)
 }
 
 /* We export this as the SMP code might init us early */
+int __init pmac_pfunc_base_install(void);
 int __init pmac_pfunc_base_install(void)
 {
 	static int pfbase_inited;

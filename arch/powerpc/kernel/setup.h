@@ -19,6 +19,8 @@ void irqstack_early_init(void);
 
 #ifdef CONFIG_PPC32
 void setup_power_save(void);
+unsigned long __init early_init(unsigned long dt_ptr);
+void __init machine_init(u64 dt_ptr);
 #else
 static inline void setup_power_save(void) { };
 #endif

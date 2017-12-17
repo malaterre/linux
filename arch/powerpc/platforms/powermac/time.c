@@ -64,6 +64,7 @@
 /* Bits in IFR and IER */
 #define T1_INT		0x40		/* Timer 1 interrupt */
 
+long __init pmac_time_init(void);
 long __init pmac_time_init(void)
 {
 	s32 delta = 0;
@@ -115,6 +116,7 @@ time64_t pmac_get_boot_time(void)
 	}
 }
 
+void pmac_get_rtc_time(struct rtc_time *tm);
 void pmac_get_rtc_time(struct rtc_time *tm)
 {
 	/* Get the time from the RTC, used only at boot time */
@@ -139,6 +141,7 @@ void pmac_get_rtc_time(struct rtc_time *tm)
 	}
 }
 
+int pmac_set_rtc_time(struct rtc_time *tm);
 int pmac_set_rtc_time(struct rtc_time *tm)
 {
 	switch (sys_ctrler) {
@@ -216,6 +219,7 @@ static int __init via_calibrate_decr(void)
 /*
  * Query the OF and get the decr frequency.
  */
+void __init pmac_calibrate_decr(void);
 void __init pmac_calibrate_decr(void)
 {
 	generic_calibrate_decr();

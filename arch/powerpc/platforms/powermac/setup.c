@@ -353,6 +353,7 @@ void note_bootable_part(dev_t dev, int part, int goodness);
  * will be false after __init time. This can't be __init because it
  * can be called whenever a disk is first accessed.
  */
+void __ref note_bootable_part(dev_t dev, int part, int goodness);
 void __ref note_bootable_part(dev_t dev, int part, int goodness)
 {
 	char *p;
