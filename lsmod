@@ -1,0 +1,40 @@
+Module                  Size  Used by
+uinput                  8967  2
+arc4                    1888  2
+b43                   401394  0
+bcma                   42339  1 b43
+mac80211              543642  1 b43
+cfg80211              420646  2 b43,mac80211
+rfkill                 16532  2 cfg80211
+rng_core                6756  1 b43
+i2c_dev                 7280  0
+sg                     23121  0
+evdev                  12741  10
+ssb                    59673  1 b43
+pcmcia                 44820  1 ssb
+pcmcia_core            15059  1 pcmcia
+mmc_core              116242  2 b43,ssb
+usb_storage            46861  0
+autofs4                29467  0
+ext4                  495967  4
+crc16                   1223  1 ext4
+jbd2                   75741  1 ext4
+crc32c_generic          1728  0
+mbcache                 4493  5 ext4
+hid_generic              881  0
+usbhid                 43998  0
+hid                    93902  2 hid_generic,usbhid
+ohci_pci                4032  0
+sungem                 27915  0
+sungem_phy             11002  1 sungem
+sd_mod                 34345  6
+sr_mod                 15076  0
+cdrom                  43294  1 sr_mod
+firewire_ohci          34119  0
+firewire_core          54910  1 firewire_ohci
+crc_itu_t               1259  1 firewire_core
+ehci_pci                4271  0
+ohci_hcd               49328  1 ohci_pci
+ehci_hcd               67652  1 ehci_pci
+usbcore               193291  6 usb_storage,ohci_hcd,ohci_pci,ehci_hcd,ehci_pci,usbhid
+usb_common              3584  1 usbcore
