@@ -2,14 +2,12 @@ language: c
 compiler:
   - gcc
 
-sudo: true
 dist: trusty
 
 addons:
-    apt:
-      packages:
-         - bc
-         - gcc-powerpc-linux-gnu
+  apt:
+    packages:
+      - gcc-powerpc-linux-gnu
 
 git:
   depth: 1
