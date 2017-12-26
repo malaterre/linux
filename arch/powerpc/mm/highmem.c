@@ -80,6 +80,8 @@ void __kunmap_atomic(void *kvaddr)
 		pte_clear(&init_mm, vaddr, kmap_pte-idx);
 		local_flush_tlb_page(NULL, vaddr);
 	}
+#else
+  (void)type;
 #endif
 
 	kmap_atomic_idx_pop();
