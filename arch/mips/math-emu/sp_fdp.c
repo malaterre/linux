@@ -22,7 +22,6 @@ union ieee754sp ieee754sp_fdp(union ieee754dp x)
 	u32 rm;
 
 	COMPXDP;
-	COMPYSP;
 
 	EXPLODEXDP;
 
@@ -37,6 +36,8 @@ union ieee754sp ieee754sp_fdp(union ieee754dp x)
 		/* fall through */
 
 	case IEEE754_CLASS_QNAN:
+	{
+		COMPYSP;
 		y = ieee754sp_nan_fdp(xs, xm);
 		if (!ieee754_csr.nan2008) {
 			EXPLODEYSP;
@@ -44,6 +45,7 @@ union ieee754sp ieee754sp_fdp(union ieee754dp x)
 				y = ieee754sp_indef();
 		}
 		return y;
+	}
 
 	case IEEE754_CLASS_INF:
 		return ieee754sp_inf(xs);

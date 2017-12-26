@@ -45,7 +45,7 @@ static inline int ieee754_class_nan(int xc)
 	unsigned int xm; int xe; int xs __maybe_unused; int xc
 
 #define COMPYSP \
-	unsigned int ym; int ye; int ys; int yc
+	unsigned int ym; int ye; int ys __maybe_unused; int yc
 
 #define COMPZSP \
 	unsigned int zm; int ze; int zs; int zc
