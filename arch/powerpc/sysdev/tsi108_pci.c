@@ -206,8 +206,11 @@ int __init tsi108_setup_pci(struct device_node *dev, u32 cfg_phys, int primary)
 	}
 
 	hose = pcibios_alloc_controller(dev);
-	if (!hose)
+
+	if (!hose) {
+		printk("PCI Host bridge init failed\n");
 		return -ENOMEM;
+	}
 
 	hose->first_busno = bus_range ? bus_range[0] : 0;
 	hose->last_busno = bus_range ? bus_range[1] : 0xff;
