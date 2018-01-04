@@ -8,6 +8,7 @@ addons:
   apt:
     packages:
       - gcc-powerpc-linux-gnu
+      - coccinelle
 
 git:
   depth: 1
