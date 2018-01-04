@@ -29,7 +29,7 @@ script:
     - make ARCH=$ARCH ${DEF}_defconfig V=1
     - make ARCH=$ARCH CROSS_COMPILE=powerpc-linux-gnu- W=1
     #- make coccicheck MODE=report KBUILD_EXTMOD=arch/powerpc J=1
-    - make coccicheck MODE=report M=arch/powerpc J=1
+    - make coccicheck ARCH=$ARCH MODE=report M=arch/powerpc J=1
 
 notifications:
     email:
