@@ -242,7 +242,7 @@
 	};
 
 	efuse: efuse@134100D0 {
-		compatible = "ingenic,jz4780-otp";
+		compatible = "ingenic,jz4780-efuse";
 		reg = <0x134100d0 0xff>;
 
 		clocks = <&cgu JZ4780_CLK_AHB2>;
