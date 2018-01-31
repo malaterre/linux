@@ -1,0 +1,34 @@
+language: c
+compiler:
+  - gcc
+
+dist: trusty
+
+addons:
+  apt:
+    packages:
+      - gcc-arm-linux-gnueabihf
+      - coccinelle
+
+git:
+  depth: 1
+
+before_script:
+    # https://lists.ozlabs.org/pipermail/linuxppc-dev/2017-December/166830.html
+    - rm -f .cache.mk
+
+env:
+  matrix:
+    - ARCH=arm
+      DEF=rpi3
+
+script:
+    - make ARCH=$ARCH ${DEF}_defconfig V=1
+    - make ARCH=$ARCH CROSS_COMPILE=arm-linux-gnueabihf- W=1
+
+notifications:
+    email:
+      recipients:
+            - malat@debian.org
+      on_success: always
+      on_failure: always
