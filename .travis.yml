@@ -26,7 +26,7 @@ env:
 
 script:
     - make ARCH=$ARCH ${DEF}_defconfig V=1
-    - make ARCH=$ARCH CROSS_COMPILE=arm-linux-gnueabihf- W=1 V=1
+    - make ARCH=$ARCH CROSS_COMPILE=arm-linux-gnueabihf- W=1
 
 notifications:
     email:
