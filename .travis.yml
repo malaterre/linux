@@ -16,6 +16,8 @@ git:
 before_script:
     # https://lists.ozlabs.org/pipermail/linuxppc-dev/2017-December/166830.html
     - rm -f .cache.mk
+    - arm-linux-gnueabihf-gcc-4.8 --version
+    - arm-linux-gnueabihf-gcc --version
 
 env:
   matrix:
