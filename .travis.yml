@@ -1,0 +1,37 @@
+language: c
+compiler:
+  - gcc
+
+dist: trusty
+
+addons:
+  apt:
+    packages:
+      - gcc-powerpc-linux-gnu
+      - u-boot-tools
+
+git:
+  depth: 1
+
+before_script:
+    # https://lists.ozlabs.org/pipermail/linuxppc-dev/2017-December/166830.html
+    - rm -f .cache.mk
+
+env:
+  matrix:
+    - DEF=ppc32
+    - DEF=ppc64
+    - DEF=gamecube
+    - DEF=ps3
+    - DEF=pmac32
+
+script:
+    - make O=build-${DEF} ARCH=powerpc ${DEF}_defconfig
+    #- if [ "$DEF" == "ppc32" ]; then timeout 40m make O=build-${DEF} ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu-; fi
+    - make -j2 O=build-${DEF} ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu- #W=1
+
+notifications:
+    email:
+      recipients:
+            - malat@debian.org
+      on_failure: always
