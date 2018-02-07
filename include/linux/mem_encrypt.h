@@ -17,6 +17,7 @@
 #include <asm/mem_encrypt.h>
 
 #else	/* !CONFIG_ARCH_HAS_MEM_ENCRYPT */
+void __init mem_encrypt_init(void);
 
 static inline bool mem_encrypt_active(void) { return false; }
 
