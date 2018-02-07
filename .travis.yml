@@ -21,15 +21,19 @@ env:
   matrix:
     - ARCH=powerpc
       DEF=g4
+      #WLEVEL=12
+      WLEVEL=1
     - ARCH=powerpc
       DEF=pmac32
+      WLEVEL=1
 
 script:
     #- make -j2 ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu- #V=1
     - make ARCH=$ARCH ${DEF}_defconfig
-    - make ARCH=$ARCH CROSS_COMPILE=powerpc-linux-gnu- W=1
+    - make ARCH=$ARCH CROSS_COMPILE=powerpc-linux-gnu- W=${WLEVEL}
     #- make coccicheck MODE=report KBUILD_EXTMOD=arch/powerpc J=1
     #- make coccicheck ARCH=$ARCH MODE=report M=arch/powerpc J=1
+    - if [ "$DEF" == "g4" ]; then test -f ./drivers/net/wireless/broadcom/b43/b43.ko ; fi
 
 notifications:
     email:
