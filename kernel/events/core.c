@@ -1030,7 +1030,7 @@ perf_cgroup_set_timestamp(struct task_struct *task,
 {
 }
 
-void
+static inline void
 perf_cgroup_switch(struct task_struct *task, struct task_struct *next)
 {
 }
@@ -11571,7 +11571,7 @@ static void __init perf_event_init_all_cpus(void)
 	}
 }
 
-void perf_swevent_init_cpu(unsigned int cpu)
+static void perf_swevent_init_cpu(unsigned int cpu)
 {
 	struct swevent_htable *swhash = &per_cpu(swevent_htable, cpu);
 
