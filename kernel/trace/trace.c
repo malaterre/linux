@@ -2449,7 +2449,7 @@ static inline void ftrace_exports_disable(void)
 	static_branch_disable(&ftrace_exports_enabled);
 }
 
-void ftrace_exports(struct ring_buffer_event *event)
+static inline void ftrace_exports(struct ring_buffer_event *event)
 {
 	struct trace_export *export;
 
