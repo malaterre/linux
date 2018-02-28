@@ -1385,9 +1385,9 @@ update_max_tr(struct trace_array *tr, struct task_struct *tsk, int cpu)
 
 /**
  * update_max_tr_single - only copy one trace over, and reset the rest
- * @tr - tracer
- * @tsk - task with the latency
- * @cpu - the cpu of the buffer to copy.
+ * @tr:   tracer
+ * @tsk:  task with the latency
+ * @cpu:  the cpu of the buffer to copy.
  *
  * Flip the trace of a single CPU buffer between the @tr and the max_tr.
  */
@@ -1581,7 +1581,7 @@ static void __init apply_trace_boot_options(void);
 
 /**
  * register_tracer - register a tracer with the ftrace system.
- * @type - the plugin for the tracer
+ * @type:  the plugin for the tracer
  *
  * Register a new plugin tracer.
  */
@@ -2044,9 +2044,9 @@ static bool tracing_record_taskinfo_skip(int flags)
 /**
  * tracing_record_taskinfo - record the task info of a task
  *
- * @task  - task to record
- * @flags - TRACE_RECORD_CMDLINE for recording comm
- *        - TRACE_RECORD_TGID for recording tgid
+ * @task:  task to record
+ * @flags: TRACE_RECORD_CMDLINE for recording comm
+ *         TRACE_RECORD_TGID for recording tgid
  */
 void tracing_record_taskinfo(struct task_struct *task, int flags)
 {
@@ -2072,9 +2072,9 @@ void tracing_record_taskinfo(struct task_struct *task, int flags)
 /**
  * tracing_record_taskinfo_sched_switch - record task info for sched_switch
  *
- * @prev - previous task during sched_switch
- * @next - next task during sched_switch
- * @flags - TRACE_RECORD_CMDLINE for recording comm
+ * @prev:  previous task during sched_switch
+ * @next:  next task during sched_switch
+ * @flags: TRACE_RECORD_CMDLINE for recording comm
  *          TRACE_RECORD_TGID for recording tgid
  */
 void tracing_record_taskinfo_sched_switch(struct task_struct *prev,
@@ -2896,7 +2896,9 @@ static void trace_printk_start_stop_comm(int enabled)
 
 /**
  * trace_vbprintk - write binary msg to tracing buffer
- *
+ * @ip:	   The address of the caller
+ * @fmt:   The format to use when writing binary msg
+ * @args:  Arguments for the format string
  */
 int trace_vbprintk(unsigned long ip, const char *fmt, va_list args)
 {
