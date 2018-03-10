@@ -20,7 +20,7 @@
 		stdout-path = &uart4;
 	};
 
-	memory {
+	memory@0 {
 		device_type = "memory";
 		reg = <0x0 0x10000000
 		       0x30000000 0x30000000>;
@@ -338,6 +338,8 @@
 	dm9000@6 {
 		compatible = "davicom,dm9000";
 		davicom,no-eeprom;
+		local-mac-address = [d0 31 10 ff 7d 20];
+		/*local-mac-address = <&eth_mac>;*/
 
 		pinctrl-names = "default";
 		pinctrl-0 = <&pins_nemc_cs6>;

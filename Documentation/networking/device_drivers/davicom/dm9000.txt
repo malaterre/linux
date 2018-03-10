@@ -9,7 +9,8 @@ Introduction
 ------------
 
 This file describes how to use the DM9000 platform-device based network driver
-that is contained in the files drivers/net/dm9000.c and drivers/net/dm9000.h.
+that is contained in the files drivers/net/ethernet/davicom/dm9000.c and
+drivers/net/ethernet/davicom/dm9000.h.
 
 The driver supports three DM9000 variants, the DM9000E which is the first chip
 supported as well as the newer DM9000A and DM9000B devices. It is currently

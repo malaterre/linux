@@ -36,7 +36,7 @@
 		clock-frequency = <32768>;
 	};
 
-	cgublock {
+	cgublock@10000000  {
 		compatible = "simple-bus", "syscon";
 
 		#address-cells = <1>;
@@ -55,7 +55,7 @@
 			#clock-cells = <1>;
 		};
 
-		rng: rng@d8 {
+		rng: rng@100000d8 {
 			compatible = "ingenic,jz4780-rng";
 			reg = <0x100000d8 0x8>;
 		};
