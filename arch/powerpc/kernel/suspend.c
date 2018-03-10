@@ -15,6 +15,7 @@
  *	pfn_is_nosave - check if given pfn is in the 'nosave' section
  */
 
+extern int pfn_is_nosave(unsigned long pfn);
 int pfn_is_nosave(unsigned long pfn)
 {
 	unsigned long nosave_begin_pfn = __pa(&__nosave_begin) >> PAGE_SHIFT;
