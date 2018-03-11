@@ -3094,6 +3094,8 @@ static void show_pte(unsigned long addr)
 }
 #endif /* CONFIG_PPC_BOOK3S_64 */
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wclobbered"
 static void show_tasks(void)
 {
 	unsigned long tskv;
@@ -3123,6 +3125,7 @@ static void show_tasks(void)
 	__delay(200);
 	catch_memory_errors = 0;
 }
+#pragma GCC diagnostic pop
 
 static void proccall(void)
 {
