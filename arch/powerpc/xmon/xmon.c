@@ -3328,10 +3328,11 @@ static void show_pte(unsigned long addr)
 static void show_tasks(void)
 {
 	unsigned long tskv;
-	struct task_struct *tsk = NULL;
+	struct task_struct *tsk;
 
 	printf("     task_struct     ->thread.ksp    ->thread.regs    PID   PPID S  P CMD\n");
 
+	tsk = NULL;
 	if (scanhex(&tskv))
 		tsk = (struct task_struct *)tskv;
 
@@ -3651,10 +3652,11 @@ static void xmon_print_symbol(unsigned long address, const char *mid,
 			      const char *after)
 {
 	char *modname;
-	const char *name = NULL;
+	const char *name;
 	unsigned long offset, size;
 
 	printf(REG, address);
+	name = NULL;
 	if (setjmp(bus_error_jmp) == 0) {
 		catch_memory_errors = 1;
 		sync();
