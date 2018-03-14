@@ -215,7 +215,8 @@ static int jz4740_i2s_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
 
 	conf = jz4740_i2s_read(i2s, JZ_REG_AIC_CONF);
 
-	conf &= ~(JZ_AIC_CONF_BIT_CLK_MASTER | JZ_AIC_CONF_SYNC_CLK_MASTER);
+	conf &= ~(JZ_AIC_CONF_BIT_CLK_MASTER | JZ_AIC_CONF_SYNC_CLK_MASTER |
+		JZ_AIC_CONF_INTERNAL_CODEC);
 
 	switch (fmt & SND_SOC_DAIFMT_MASTER_MASK) {
 	case SND_SOC_DAIFMT_CBS_CFS:
@@ -229,6 +230,7 @@ static int jz4740_i2s_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
 		conf |= JZ_AIC_CONF_BIT_CLK_MASTER;
 		break;
 	case SND_SOC_DAIFMT_CBM_CFM:
+		conf |= JZ_AIC_CONF_INTERNAL_CODEC;
 		break;
 	default:
 		return -EINVAL;
@@ -404,7 +406,7 @@ static void jz4740_i2c_init_pcm_config(struct jz4740_i2s *i2s)
 static int jz4740_i2s_dai_probe(struct snd_soc_dai *dai)
 {
 	struct jz4740_i2s *i2s = snd_soc_dai_get_drvdata(dai);
-	uint32_t conf;
+	uint32_t conf, reg;
 	int ret;
 
 	ret = clk_prepare_enable(i2s->clk_aic);
@@ -428,6 +430,15 @@ static int jz4740_i2s_dai_probe(struct snd_soc_dai *dai)
 			JZ_AIC_CONF_I2S |
 			JZ_AIC_CONF_INTERNAL_CODEC;
 	}
+
+	/* I2S operation from SYS_CLK */
+	reg = jz4740_i2s_read(i2s, JZ_REG_AIC_I2S_FMT);
+	reg |= JZ_AIC_I2S_FMT_ENABLE_SYS_CLK;
+	jz4740_i2s_write(i2s, JZ_REG_AIC_I2S_FMT, reg);
+
+	/* enable codec sysclk */
+	clk_set_rate(i2s->clk_i2s, 12000000);
+	clk_prepare_enable(i2s->clk_i2s);
 
 	jz4740_i2s_write(i2s, JZ_REG_AIC_CONF, JZ_AIC_CONF_RESET);
 	jz4740_i2s_write(i2s, JZ_REG_AIC_CONF, conf);
