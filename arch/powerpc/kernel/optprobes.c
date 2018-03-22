@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * Code for Kernel probes Jump optimization.
  *

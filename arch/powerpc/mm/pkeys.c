@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
+
 // SPDX-License-Identifier: GPL-2.0+
 /*
  * PowerPC Memory Protection Keys management

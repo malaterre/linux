@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * Machine check exception handling.
  *
@@ -257,7 +258,7 @@ void machine_check_queue_event(void)
 static void machine_process_ue_event(struct work_struct *work)
 {
 	int index;
-	struct machine_check_event *evt;
+	struct machine_check_event *evt __maybe_unused;
 
 	while (__this_cpu_read(mce_ue_count) > 0) {
 		index = __this_cpu_read(mce_ue_count) - 1;

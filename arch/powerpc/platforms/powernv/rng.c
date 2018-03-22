@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
+
 /*
  * Copyright 2013, Michael Ellerman, IBM Corporation.
  *

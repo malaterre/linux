@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
+
 /*
  *  PowerPC version 
  *    Copyright (C) 1995-1996 Gary Thomas (gdt@linuxppc.org)
@@ -644,7 +646,7 @@ static long setup_trampoline(unsigned int syscall, unsigned int __user *tramp)
 SYSCALL_DEFINE3(swapcontext, struct ucontext __user *, old_ctx,
 		struct ucontext __user *, new_ctx, long, ctx_size)
 {
-	unsigned char tmp;
+	unsigned char tmp __maybe_unused;
 	sigset_t set;
 	unsigned long new_msr = 0;
 	int ctx_has_vsx_region = 0;

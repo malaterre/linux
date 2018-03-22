@@ -274,7 +274,7 @@ void __ref vmemmap_free(unsigned long start, unsigned long end,
 
 	for (; start < end; start += page_size) {
 		unsigned long nr_pages, addr;
-		struct page *section_base;
+		struct page *section_base __maybe_unused;
 		struct page *page;
 
 		/*

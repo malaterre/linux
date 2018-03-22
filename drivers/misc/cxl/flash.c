@@ -175,7 +175,7 @@ static int update_devicetree(struct cxl *adapter, s32 scope)
 	struct update_nodes_workarea *unwa;
 	u32 action, node_count;
 	int token, rc, i;
-	__be32 *data, drc_index, phandle;
+	__be32 *data, drc_index __maybe_unused, phandle;
 	char *buf;
 
 	token = rtas_token("ibm,update-nodes");

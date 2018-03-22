@@ -241,8 +241,8 @@ static void pnv_smp_cpu_kill_self(void)
 			continue;
 
 		if (srr1 && !generic_check_cpu_restart(cpu))
-			DBG("CPU%d Unexpected exit while offline srr1=%lx!\n",
-					cpu, srr1);
+			{DBG("CPU%d Unexpected exit while offline srr1=%lx!\n",
+					cpu, srr1);}
 
 	}
 

@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * SMP support for ppc.
  *

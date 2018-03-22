@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * Signal handling for 32bit PPC and 32bit tasks on 64bit PPC
  *

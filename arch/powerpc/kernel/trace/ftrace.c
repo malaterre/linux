@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 // SPDX-License-Identifier: GPL-2.0
 /*
  * Code for replacing ftrace calls with jumps.

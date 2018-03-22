@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * PowerPC64 port by Mike Corrigan and Dave Engebretsen
  *   {mikejc|engebret}@us.ibm.com

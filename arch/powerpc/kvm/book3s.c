@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * Copyright (C) 2009. SUSE Linux Products GmbH. All rights reserved.
  *

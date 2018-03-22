@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * The file intends to implement the platform dependent EEH operations on
  * powernv platform. Actually, the powernv was created in order to fully

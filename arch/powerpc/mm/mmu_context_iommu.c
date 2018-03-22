@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
+
 /*
  *  IOMMU helpers in MMU context.
  *

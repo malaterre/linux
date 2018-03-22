@@ -152,7 +152,7 @@ inline u64 rtas_mc_get_effective_addr(const struct pseries_mc_errorlog *mlog)
  * devices or systems (e.g. hugepages) that have not been initialized at the
  * subsys stage.
  */
-int __init init_ras_hotplug_IRQ(void)
+static int __init init_ras_hotplug_IRQ(void)
 {
 	struct device_node *np;
 
@@ -256,7 +256,7 @@ static void rtas_parse_epow_errlog(struct rtas_error_log *log)
 	struct pseries_errorlog *pseries_log;
 	struct epow_errorlog *epow_log;
 	char action_code;
-	char modifier;
+	char modifier __maybe_unused;
 
 	pseries_log = get_pseries_errorlog(log, PSERIES_ELOG_SECT_ID_EPOW);
 	if (pseries_log == NULL)
@@ -346,7 +346,7 @@ static irqreturn_t ras_hotplug_interrupt(int irq, void *dev_id)
 /* Handle environmental and power warning (EPOW) interrupts. */
 static irqreturn_t ras_epow_interrupt(int irq, void *dev_id)
 {
-	int status;
+	int status __maybe_unused;
 	int state;
 	int critical;
 

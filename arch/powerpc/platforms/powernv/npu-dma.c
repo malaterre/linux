@@ -199,7 +199,7 @@ static void pnv_npu_dma_set_32(struct pnv_ioda_pe *npe)
 {
 	struct pci_dev *gpdev;
 	struct pnv_ioda_pe *gpe;
-	int64_t rc;
+	int64_t rc __maybe_unused;
 
 	/*
 	 * Find the assoicated PCI devices and get the dma window

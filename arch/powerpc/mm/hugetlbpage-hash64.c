@@ -26,7 +26,7 @@ int __hash_page_huge(unsigned long ea, unsigned long access, unsigned long vsid,
 	real_pte_t rpte;
 	unsigned long vpn;
 	unsigned long old_pte, new_pte;
-	unsigned long rflags, pa, sz;
+	unsigned long rflags, pa, sz __maybe_unused;
 	long slot, offset;
 
 	BUG_ON(shift != mmu_psize_defs[mmu_psize].shift);

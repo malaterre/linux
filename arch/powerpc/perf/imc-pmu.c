@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * In-Memory Collection (IMC) Performance Monitor counter support.
  *

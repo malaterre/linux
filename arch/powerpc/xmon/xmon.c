@@ -1,3 +1,5 @@
+#pragma GCC diagnostic ignored "-Wclobbered"
+
 /*
  * Routines providing a simple monitor for use on the PowerMac.
  *

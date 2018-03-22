@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 // SPDX-License-Identifier: GPL-2.0
 #undef __powerpc64__
 #include <asm/unistd.h>

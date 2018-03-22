@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * 
  * Common boot and setup code.
@@ -570,10 +571,10 @@ void __init initialize_cache_info(void)
 	 */
 	if (cpu) {
 		if (!parse_cache_info(cpu, false, &ppc64_caches.l1d))
-			DBG("Argh, can't find dcache properties !\n");
+			{DBG("Argh, can't find dcache properties !\n");}
 
 		if (!parse_cache_info(cpu, true, &ppc64_caches.l1i))
-			DBG("Argh, can't find icache properties !\n");
+			{DBG("Argh, can't find icache properties !\n");}
 
 		/*
 		 * Try to find the L2 and L3 if any. Assume they are

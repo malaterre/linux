@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * TLB flush routines for radix kernels.
  *
@@ -20,6 +21,7 @@
 #include <asm/tlbflush.h>
 #include <asm/trace.h>
 #include <asm/cputhreads.h>
+#include <asm/mmu_context.h>
 
 #define RIC_FLUSH_TLB 0
 #define RIC_FLUSH_PWC 1

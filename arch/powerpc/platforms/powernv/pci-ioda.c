@@ -864,7 +864,7 @@ static int pnv_ioda_deconfigure_pe(struct pnv_phb *phb, struct pnv_ioda_pe *pe)
 
 static int pnv_ioda_configure_pe(struct pnv_phb *phb, struct pnv_ioda_pe *pe)
 {
-	struct pci_dev *parent;
+	struct pci_dev *parent __maybe_unused;
 	uint8_t bcomp, dcomp, fcomp;
 	long rc, rid_end, rid;
 

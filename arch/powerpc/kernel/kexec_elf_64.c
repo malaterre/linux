@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * Load ELF vmlinux file for the kexec_file_load syscall.
  *

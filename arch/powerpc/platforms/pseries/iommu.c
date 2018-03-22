@@ -105,7 +105,7 @@ static int tce_build_pSeries(struct iommu_table *tbl, long index,
 			      unsigned long attrs)
 {
 	u64 proto_tce;
-	__be64 *tcep, *tces;
+	__be64 *tcep, *tces __maybe_unused;
 	u64 rpn;
 
 	proto_tce = TCE_PCI_READ; // Read allowed
@@ -129,7 +129,7 @@ static int tce_build_pSeries(struct iommu_table *tbl, long index,
 
 static void tce_free_pSeries(struct iommu_table *tbl, long index, long npages)
 {
-	__be64 *tcep, *tces;
+	__be64 *tcep, *tces __maybe_unused;
 
 	tces = tcep = ((__be64 *)tbl->it_base) + index;
 

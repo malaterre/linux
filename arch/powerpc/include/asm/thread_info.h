@@ -162,6 +162,7 @@ static inline bool test_thread_local_flags(unsigned int flags)
 	struct thread_info *ti = current_thread_info();
 	return (ti->local_flags & flags) != 0;
 }
+void arch_release_task_struct(struct task_struct *tsk);
 
 #ifdef CONFIG_PPC64
 #define is_32bit_task()	(test_thread_flag(TIF_32BIT))

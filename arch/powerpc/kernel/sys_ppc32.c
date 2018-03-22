@@ -1,3 +1,4 @@
+#pragma GCC diagnostic ignored "-Wmissing-prototypes"
 /*
  * sys_ppc32.c: Conversion between 32bit and 64bit native syscalls.
  *
