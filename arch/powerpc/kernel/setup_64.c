@@ -68,6 +68,7 @@
 #include <asm/cputhreads.h>
 #include <asm/hw_irq.h>
 #include <asm/feature-fixups.h>
+#include <asm/asm-prototypes.h>
 
 #include "setup.h"
 
@@ -569,11 +570,13 @@ void __init initialize_cache_info(void)
 	 * d-cache and i-cache sizes... -Peter
 	 */
 	if (cpu) {
-		if (!parse_cache_info(cpu, false, &ppc64_caches.l1d))
+		if (!parse_cache_info(cpu, false, &ppc64_caches.l1d)) {
 			DBG("Argh, can't find dcache properties !\n");
+		}
 
-		if (!parse_cache_info(cpu, true, &ppc64_caches.l1i))
+		if (!parse_cache_info(cpu, true, &ppc64_caches.l1i)) {
 			DBG("Argh, can't find icache properties !\n");
+		}
 
 		/*
 		 * Try to find the L2 and L3 if any. Assume they are
