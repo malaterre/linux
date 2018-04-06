@@ -71,6 +71,7 @@ static inline struct thread_info *current_thread_info(void)
 }
 
 extern int arch_dup_task_struct(struct task_struct *dst, struct task_struct *src);
+void arch_release_task_struct(struct task_struct *t);
 #endif /* __ASSEMBLY__ */
 
 /*
