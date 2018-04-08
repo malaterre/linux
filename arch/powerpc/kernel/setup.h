@@ -19,9 +19,6 @@ void irqstack_early_init(void);
 void setup_power_save(void);
 unsigned long __init early_init(unsigned long dt_ptr);
 void __init machine_init(u64 dt_ptr);
-int __init ppc_setup_l2cr(char *str);
-int __init ppc_setup_l3cr(char *str);
-int __init ppc_init(void);
 #else
 static inline void setup_power_save(void) { };
 #endif
