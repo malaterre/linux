@@ -574,7 +574,7 @@ void __init pmac_pic_init(void)
  * and disables all interrupts except for the nominated one.
  * sleep_restore_intrs() restores the states of all interrupt enables.
  */
-unsigned long sleep_save_mask[2];
+static unsigned long sleep_save_mask[2];
 
 /* This used to be passed by the PMU driver but that link got
  * broken with the new driver model. We use this tweak for now...
