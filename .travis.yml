@@ -19,7 +19,7 @@ before_script:
 
 env:
   matrix:
-    - DEF=ppc32
+    #- DEF=ppc32
     - DEF=ppc64
     - DEF=gamecube
     - DEF=ps3
@@ -28,7 +28,7 @@ env:
 script:
     - make O=build-${DEF} ARCH=powerpc ${DEF}_defconfig
     #- if [ "$DEF" == "ppc32" ]; then timeout 40m make O=build-${DEF} ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu-; fi
-    - make -j2 O=build-${DEF} ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu- #W=1
+    - make -j2 O=build-${DEF} ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu- W=1
 
 notifications:
     email:
