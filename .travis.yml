@@ -24,6 +24,10 @@ env:
     - DEF=gamecube
     - DEF=ps3
     - DEF=pmac32
+    - DEF=wii
+    - DEF=cell
+    - DEF=g5
+    - DEF=mpc885_ads
 
 script:
     - make O=build-${DEF} ARCH=powerpc ${DEF}_defconfig
