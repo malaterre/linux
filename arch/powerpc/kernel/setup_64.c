@@ -258,7 +258,7 @@ static void cpu_ready_for_interrupts(void)
 
 unsigned long spr_default_dscr = 0;
 
-void __init record_spr_defaults(void)
+static void __init record_spr_defaults(void)
 {
 	if (early_cpu_has_feature(CPU_FTR_DSCR))
 		spr_default_dscr = mfspr(SPRN_DSCR);
