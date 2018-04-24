@@ -598,6 +598,7 @@ static void sysfs_create_dscr_default(void)
 			paca_ptrs[cpu]->dscr_default = dscr_default;
 
 		err = device_create_file(cpu_subsys.dev_root, &dev_attr_dscr_default);
+    (void)err;
 	}
 }
 
