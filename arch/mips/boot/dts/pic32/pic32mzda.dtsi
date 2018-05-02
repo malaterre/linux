@@ -79,7 +79,7 @@
 		microchip,external-irqs = <3 8 13 18 23>;
 	};
 
-	pic32_pinctrl: pinctrl@1f801400{
+	pic32_pinctrl: pinctrl@1f801400 {
 		#address-cells = <1>;
 		#size-cells = <1>;
 		compatible = "microchip,pic32mzda-pinctrl";
@@ -290,7 +290,7 @@
 		status = "disabled";
 	};
 
-	uart6: serial@1f822A00 {
+	uart6: serial@1f822a00 {
 		compatible = "microchip,pic32mzda-uart";
 		reg = <0x1f822A00 0x50>;
 		interrupts = <188 IRQ_TYPE_LEVEL_HIGH>,

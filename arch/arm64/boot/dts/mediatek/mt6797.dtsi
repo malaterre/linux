@@ -211,7 +211,7 @@
 		#clock-cells = <1>;
 	};
 
-	imgsys: imgsys_config@15000000  {
+	imgsys: imgsys_config@15000000 {
 		compatible = "mediatek,mt6797-imgsys", "syscon";
 		reg = <0 0x15000000 0 0x1000>;
 		#clock-cells = <1>;

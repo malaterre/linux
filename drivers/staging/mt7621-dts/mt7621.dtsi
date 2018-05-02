@@ -42,7 +42,7 @@
 		clock-frequency = <50000000>;
 	};
 
-	palmbus: palmbus@1E000000 {
+	palmbus: palmbus@1e000000 {
 		compatible = "palmbus";
 		reg = <0x1E000000 0x100000>;
 		ranges = <0x0 0x1E000000 0x0FFFFF>;
@@ -313,7 +313,7 @@
 		#clock-cells = <1>;
 	};
 
-	sdhci: sdhci@1E130000 {
+	sdhci: sdhci@1e130000 {
 		status = "disabled";
 
 		compatible = "ralink,mt7620-sdhci";
@@ -323,7 +323,7 @@
 		interrupts = <GIC_SHARED 20 IRQ_TYPE_LEVEL_HIGH>;
 	};
 
-	xhci: xhci@1E1C0000 {
+	xhci: xhci@1e1c0000 {
 		status = "okay";
 
 		compatible = "mediatek,mt8173-xhci";

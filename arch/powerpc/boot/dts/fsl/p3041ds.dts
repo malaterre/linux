@@ -165,7 +165,7 @@
 			};
 		};
 
-		fman@400000{
+		fman@400000 {
 			ethernet@e0000 {
 				phy-handle = <&phy_sgmii_1c>;
 				phy-connection-type = "sgmii";

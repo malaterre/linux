@@ -88,37 +88,37 @@
 			reg = <0x2290000 0x40>;
 		};
 
-		timer10: timer@22A0000 {
+		timer10: timer@22a0000 {
 			compatible = "ti,c64x+timer64";
 			ti,core-mask = < 0x04 >;
 			reg = <0x22A0000 0x40>;
 		};
 
-		timer11: timer@22B0000 {
+		timer11: timer@22b0000 {
 			compatible = "ti,c64x+timer64";
 			ti,core-mask = < 0x08 >;
 			reg = <0x22B0000 0x40>;
 		};
 
-		timer12: timer@22C0000 {
+		timer12: timer@22c0000 {
 			compatible = "ti,c64x+timer64";
 			ti,core-mask = < 0x10 >;
 			reg = <0x22C0000 0x40>;
 		};
 
-		timer13: timer@22D0000 {
+		timer13: timer@22d0000 {
 			compatible = "ti,c64x+timer64";
 			ti,core-mask = < 0x20 >;
 			reg = <0x22D0000 0x40>;
 		};
 
-		timer14: timer@22E0000 {
+		timer14: timer@22e0000 {
 			compatible = "ti,c64x+timer64";
 			ti,core-mask = < 0x40 >;
 			reg = <0x22E0000 0x40>;
 		};
 
-		timer15: timer@22F0000 {
+		timer15: timer@22f0000 {
 			compatible = "ti,c64x+timer64";
 			ti,core-mask = < 0x80 >;
 			reg = <0x22F0000 0x40>;

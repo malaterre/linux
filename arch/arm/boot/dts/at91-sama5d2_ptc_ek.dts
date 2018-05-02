@@ -91,12 +91,12 @@
 							reg = <0x40000 0xc0000>;
 						};
 
-						bootloaderenv@0x100000 {
+						bootloaderenv@100000 {
 							label = "bootloader env";
 							reg = <0x100000 0x40000>;
 						};
 
-						bootloaderenvred@0x140000 {
+						bootloaderenvred@140000 {
 							label = "bootloader env redundant";
 							reg = <0x140000 0x40000>;
 						};

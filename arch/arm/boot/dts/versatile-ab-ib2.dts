@@ -14,7 +14,7 @@
 		compatible = "arm,versatile-ib2-syscon", "syscon", "simple-mfd";
 		reg = <0x27000000 0x4>;
 
-		led@00.4 {
+		led@0.4 {
 			compatible = "register-bit-led";
 			offset = <0x00>;
 			mask = <0x10>;

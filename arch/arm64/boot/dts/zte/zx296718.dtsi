@@ -553,7 +553,7 @@
 			reg = <0x1463000 0x1000>;
 		};
 
-		emmc: mmc@1470000{
+		emmc: mmc@1470000 {
 			compatible = "zte,zx296718-dw-mshc";
 			reg = <0x01470000 0x1000>;
 			interrupts = <GIC_SPI 23 IRQ_TYPE_LEVEL_HIGH>;

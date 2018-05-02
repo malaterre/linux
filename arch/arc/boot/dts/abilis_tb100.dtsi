@@ -38,7 +38,7 @@
 			clock-div = <6>;
 		};
 
-		iomux: iomux@FF10601c {
+		iomux: iomux@ff10601c {
 			/* Port 1 */
 			pctl_tsin_s0: pctl-tsin-s0 {   /* Serial TS-in 0 */
 				abilis,function = "mis0";
@@ -162,7 +162,7 @@
 			};
 		};
 
-		gpioa: gpio@FF140000 {
+		gpioa: gpio@ff140000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -175,7 +175,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpioa";
 		};
-		gpiob: gpio@FF141000 {
+		gpiob: gpio@ff141000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -188,7 +188,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpiob";
 		};
-		gpioc: gpio@FF142000 {
+		gpioc: gpio@ff142000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -201,7 +201,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpioc";
 		};
-		gpiod: gpio@FF143000 {
+		gpiod: gpio@ff143000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -214,7 +214,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpiod";
 		};
-		gpioe: gpio@FF144000 {
+		gpioe: gpio@ff144000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -227,7 +227,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpioe";
 		};
-		gpiof: gpio@FF145000 {
+		gpiof: gpio@ff145000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -240,7 +240,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpiof";
 		};
-		gpiog: gpio@FF146000 {
+		gpiog: gpio@ff146000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -253,7 +253,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpiog";
 		};
-		gpioh: gpio@FF147000 {
+		gpioh: gpio@ff147000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -266,7 +266,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpioh";
 		};
-		gpioi: gpio@FF148000 {
+		gpioi: gpio@ff148000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -279,7 +279,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpioi";
 		};
-		gpioj: gpio@FF149000 {
+		gpioj: gpio@ff149000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -292,7 +292,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpioj";
 		};
-		gpiok: gpio@FF14a000 {
+		gpiok: gpio@ff14a000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -305,7 +305,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpiok";
 		};
-		gpiol: gpio@FF14b000 {
+		gpiol: gpio@ff14b000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -318,7 +318,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpiol";
 		};
-		gpiom: gpio@FF14c000 {
+		gpiom: gpio@ff14c000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;
@@ -331,7 +331,7 @@
 			gpio-ranges = <&iomux 0 0 0>;
 			gpio-ranges-group-names = "gpiom";
 		};
-		gpion: gpio@FF14d000 {
+		gpion: gpio@ff14d000 {
 			compatible = "abilis,tb10x-gpio";
 			interrupt-controller;
 			#interrupt-cells = <1>;

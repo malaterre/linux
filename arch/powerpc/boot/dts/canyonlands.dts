@@ -545,7 +545,7 @@
 				0x0 0x0 0x0 0x4 &UIC3 0x13 0x4 /* swizzled int D */>;
 		};
 
-		MSI: ppc4xx-msi@C10000000 {
+		MSI: ppc4xx-msi@c10000000 {
 			compatible = "amcc,ppc4xx-msi", "ppc4xx-msi";
 			reg = < 0xC 0x10000000 0x100>;
 			sdr-base = <0x36C>;

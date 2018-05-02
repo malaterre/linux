@@ -1327,7 +1327,7 @@
 			};
 		};
 
-		eth0: ethernet@4{
+		eth0: ethernet@4 {
 			compatible = "hisilicon,hns-nic-v2";
 			ae-handle = <&dsaf0>;
 			port-idx-in-ae = <4>;
@@ -1336,7 +1336,7 @@
 			dma-coherent;
 		};
 
-		eth1: ethernet@5{
+		eth1: ethernet@5 {
 			compatible = "hisilicon,hns-nic-v2";
 			ae-handle = <&dsaf0>;
 			port-idx-in-ae = <5>;
@@ -1345,7 +1345,7 @@
 			dma-coherent;
 		};
 
-		eth2: ethernet@0{
+		eth2: ethernet@0 {
 			compatible = "hisilicon,hns-nic-v2";
 			ae-handle = <&dsaf0>;
 			port-idx-in-ae = <0>;
@@ -1354,7 +1354,7 @@
 			dma-coherent;
 		};
 
-		eth3: ethernet@1{
+		eth3: ethernet@1 {
 			compatible = "hisilicon,hns-nic-v2";
 			ae-handle = <&dsaf0>;
 			port-idx-in-ae = <1>;

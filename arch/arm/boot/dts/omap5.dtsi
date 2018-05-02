@@ -1048,7 +1048,7 @@
 				clock-names = "fck";
 			};
 
-			rfbi: encoder@58002000  {
+			rfbi: encoder@58002000 {
 				compatible = "ti,omap5-rfbi";
 				reg = <0x58002000 0x100>;
 				status = "disabled";

@@ -121,7 +121,7 @@
 				label = "NAND Linux Kernel Image";
 			};
 
-			partition@C00000 {
+			partition@c00000 {
 				/* 500MB for Root file System Image */
 				reg = <0x00c00000 0x1F400000>;
 				label = "NAND RFS Image";

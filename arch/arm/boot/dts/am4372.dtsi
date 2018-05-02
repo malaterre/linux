@@ -369,7 +369,7 @@
 			clock-names = "fck";
 		};
 
-		timer2: timer@48040000  {
+		timer2: timer@48040000 {
 			compatible = "ti,am4372-timer","ti,am335x-timer";
 			reg = <0x48040000  0x400>;
 			interrupts = <GIC_SPI 68 IRQ_TYPE_LEVEL_HIGH>;

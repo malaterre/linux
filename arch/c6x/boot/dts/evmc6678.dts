@@ -46,32 +46,32 @@
 			interrupts = < 68 >;
 		};
 
-		timer10: timer@22A0000 {
+		timer10: timer@22a0000 {
 			interrupt-parent = <&megamod_pic>;
 			interrupts = < 70 >;
 		};
 
-		timer11: timer@22B0000 {
+		timer11: timer@22b0000 {
 			interrupt-parent = <&megamod_pic>;
 			interrupts = < 72 >;
 		};
 
-		timer12: timer@22C0000 {
+		timer12: timer@22c0000 {
 			interrupt-parent = <&megamod_pic>;
 			interrupts = < 74 >;
 		};
 
-		timer13: timer@22D0000 {
+		timer13: timer@22d0000 {
 			interrupt-parent = <&megamod_pic>;
 			interrupts = < 76 >;
 		};
 
-		timer14: timer@22E0000 {
+		timer14: timer@22e0000 {
 			interrupt-parent = <&megamod_pic>;
 			interrupts = < 78 >;
 		};
 
-		timer15: timer@22F0000 {
+		timer15: timer@22f0000 {
 			interrupt-parent = <&megamod_pic>;
 			interrupts = < 80 >;
 		};

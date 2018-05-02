@@ -75,7 +75,7 @@
 			status = "okay";
 		};
 
-		spi@75ba000{
+		spi@75ba000 {
 		/* On High speed expansion */
 			label = "HS-SPI1";
 			status = "okay";

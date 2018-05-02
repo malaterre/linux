@@ -72,13 +72,13 @@
 			label = "user";
 		};
 
-		partition@7A0000 {
+		partition@7a0000 {
 			reg = <0x7A0000 0x20000>;
 			label = "env";
 			read-only;
 		};
 
-		partition@7C0000 {
+		partition@7c0000 {
 			reg = <0x7C0000 0x40000>;
 			label = "u-boot";
 			read-only;

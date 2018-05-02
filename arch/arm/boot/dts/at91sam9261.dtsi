@@ -197,7 +197,7 @@
 				status = "disabled";
 			};
 
-			usart2: serial@fffb8000{
+			usart2: serial@fffb8000 {
 				compatible = "atmel,at91sam9260-usart";
 				reg = <0xfffb8000 0x200>;
 				interrupts = <8 IRQ_TYPE_LEVEL_HIGH 5>;

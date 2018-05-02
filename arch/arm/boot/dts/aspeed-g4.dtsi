@@ -261,7 +261,7 @@
 						#reset-cells = <1>;
 					};
 
-					ibt: ibt@c0  {
+					ibt: ibt@c0 {
 						compatible = "aspeed,ast2400-ibt-bmc";
 						reg = <0xc0 0x18>;
 						interrupts = <8>;

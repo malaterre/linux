@@ -623,7 +623,7 @@
 					<GIC_SPI 146 IRQ_TYPE_LEVEL_HIGH>;
 			};
 
-			queue-group@2d14000  {
+			queue-group@2d14000 {
 				#address-cells = <2>;
 				#size-cells = <2>;
 				reg = <0x0 0x2d14000 0x0 0x1000>;
@@ -643,7 +643,7 @@
 			ranges;
 			dma-coherent;
 
-			queue-group@2d50000  {
+			queue-group@2d50000 {
 				#address-cells = <2>;
 				#size-cells = <2>;
 				reg = <0x0 0x2d50000 0x0 0x1000>;
@@ -652,7 +652,7 @@
 					<GIC_SPI 153 IRQ_TYPE_LEVEL_HIGH>;
 			};
 
-			queue-group@2d54000  {
+			queue-group@2d54000 {
 				#address-cells = <2>;
 				#size-cells = <2>;
 				reg = <0x0 0x2d54000 0x0 0x1000>;
@@ -672,7 +672,7 @@
 			ranges;
 			dma-coherent;
 
-			queue-group@2d90000  {
+			queue-group@2d90000 {
 				#address-cells = <2>;
 				#size-cells = <2>;
 				reg = <0x0 0x2d90000 0x0 0x1000>;
@@ -681,7 +681,7 @@
 					<GIC_SPI 159 IRQ_TYPE_LEVEL_HIGH>;
 			};
 
-			queue-group@2d94000  {
+			queue-group@2d94000 {
 				#address-cells = <2>;
 				#size-cells = <2>;
 				reg = <0x0 0x2d94000 0x0 0x1000>;

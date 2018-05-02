@@ -53,7 +53,7 @@
 		gnssm {
 			spi1: spi@18200000 {
 				status = "okay";
-				spiflash: macronix@0{
+				spiflash: macronix@0 {
 					status = "okay";
 					compatible = "macronix,mx25l6405d";
 					reg = <0>;
