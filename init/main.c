@@ -751,8 +751,6 @@ void __init parse_early_param(void)
 	done = 1;
 }
 
-void __init __weak arch_post_acpi_subsys_init(void) { }
-
 void __init __weak smp_setup_processor_id(void)
 {
 }

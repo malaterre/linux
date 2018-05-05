@@ -797,6 +797,7 @@ static inline struct device *acpi_get_first_physical_node(struct acpi_device *ad
 
 static inline void acpi_early_init(void) { }
 static inline void acpi_subsystem_init(void) { }
+static inline void arch_post_acpi_subsys_init(void) { }
 
 static inline int early_acpi_boot_init(void)
 {
