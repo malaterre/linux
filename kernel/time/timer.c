@@ -250,6 +250,7 @@ void timers_update_nohz(void)
 	schedule_work(&timer_update_work);
 }
 
+#ifdef CONFIG_SMP
 int timer_migration_handler(struct ctl_table *table, int write,
 			    void *buffer, size_t *lenp, loff_t *ppos)
 {
@@ -262,6 +263,7 @@ int timer_migration_handler(struct ctl_table *table, int write,
 	mutex_unlock(&timer_keys_mutex);
 	return ret;
 }
+#endif
 
 static inline bool is_timers_nohz_active(void)
 {
