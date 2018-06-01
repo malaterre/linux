@@ -407,6 +407,7 @@ void uasm_build_label(struct uasm_label **lab, u32 *addr, int lid)
 }
 UASM_EXPORT_SYMBOL(uasm_build_label);
 
+#ifdef CONFIG_64BIT
 int uasm_in_compat_space_p(long addr)
 {
 	/* Is this address in 32bit compat space? */
@@ -416,21 +417,14 @@ UASM_EXPORT_SYMBOL(uasm_in_compat_space_p);
 
 static int uasm_rel_highest(long val)
 {
-#ifdef CONFIG_64BIT
 	return ((((val + 0x800080008000L) >> 48) & 0xffff) ^ 0x8000) - 0x8000;
-#else
-	return 0;
-#endif
 }
 
 static int uasm_rel_higher(long val)
 {
-#ifdef CONFIG_64BIT
 	return ((((val + 0x80008000L) >> 32) & 0xffff) ^ 0x8000) - 0x8000;
-#else
-	return 0;
-#endif
 }
+#endif
 
 int uasm_rel_hi(long val)
 {
@@ -444,6 +438,7 @@ int uasm_rel_lo(long val)
 }
 UASM_EXPORT_SYMBOL(uasm_rel_lo);
 
+#ifdef CONFIG_64BIT
 void UASM_i_LA_mostly(u32 **buf, unsigned int rs, long addr)
 {
 	if (!uasm_in_compat_space_p(addr)) {
@@ -475,6 +470,7 @@ void UASM_i_LA(u32 **buf, unsigned int rs, long addr)
 	}
 }
 UASM_EXPORT_SYMBOL(UASM_i_LA);
+#endif
 
 /* Handle relocations. */
 void uasm_r_mips_pc16(struct uasm_reloc **rel, u32 *addr, int lid)
