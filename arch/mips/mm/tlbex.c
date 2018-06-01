@@ -2589,6 +2589,7 @@ static void check_pabits(void)
 	pr_debug("Entry* registers contain %u fill bits\n", fillbits);
 }
 
+void build_tlb_refill_handler(void);
 void build_tlb_refill_handler(void)
 {
 	/*
