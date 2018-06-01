@@ -127,7 +127,7 @@ __rwsem_wake_one_writer(struct rw_semaphore *sem)
 /*
  * get a read lock on the semaphore
  */
-int __sched __down_read_common(struct rw_semaphore *sem, int state)
+static int __sched __down_read_common(struct rw_semaphore *sem, int state)
 {
 	struct rwsem_waiter waiter;
 	unsigned long flags;
@@ -210,7 +210,7 @@ int __down_read_trylock(struct rw_semaphore *sem)
 /*
  * get a write lock on the semaphore
  */
-int __sched __down_write_common(struct rw_semaphore *sem, int state)
+static int __sched __down_write_common(struct rw_semaphore *sem, int state)
 {
 	struct rwsem_waiter waiter;
 	unsigned long flags;
