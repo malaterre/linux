@@ -475,6 +475,8 @@ static int radeon_pmops_runtime_suspend(struct device *dev)
 	drm_kms_helper_poll_disable(drm_dev);
 
 	ret = radeon_suspend_kms(drm_dev, false, false, false);
+	if (ret)
+		return ret;
 	pci_save_state(pdev);
 	pci_disable_device(pdev);
 	pci_ignore_hotplug(pdev);
@@ -508,6 +510,8 @@ static int radeon_pmops_runtime_resume(struct device *dev)
 	pci_set_master(pdev);
 
 	ret = radeon_resume_kms(drm_dev, false, false);
+	if (ret)
+		return ret;
 	drm_kms_helper_poll_enable(drm_dev);
 	drm_dev->switch_power_state = DRM_SWITCH_POWER_ON;
 	return 0;
