@@ -73,6 +73,10 @@
 	clock-frequency = <48000000>;
 };
 
+&dma {
+ status = "okay";
+};
+
 &mmc0 {
 	status = "okay";
 
