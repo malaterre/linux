@@ -1,7 +1,7 @@
 # SPDX-License-Identifier: GPL-2.0-only
 config SND_JZ4740_SOC_I2S
 	tristate "SoC Audio (I2S protocol) for Ingenic JZ4740 SoC"
-	depends on MIPS || COMPILE_TEST
+        depends on MACH_JZ4740 || MACH_JZ4780 || COMPILE_TEST
 	depends on HAS_IOMEM
 	select SND_SOC_GENERIC_DMAENGINE_PCM
 	help
