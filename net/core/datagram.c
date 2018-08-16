@@ -684,7 +684,6 @@ int __zerocopy_sg_from_iter(struct sock *sk, struct sk_buff *skb,
 	}
 	return 0;
 }
-EXPORT_SYMBOL(__zerocopy_sg_from_iter);
 
 /**
  *	zerocopy_sg_from_iter - Build a zerocopy datagram from an iov_iter
