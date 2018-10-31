@@ -228,7 +228,7 @@ EXPORT_SYMBOL_GPL(flush_fp_to_thread);
 
 void enable_kernel_fp(void)
 {
-	unsigned long cpumsr;
+	unsigned long cpumsr __maybe_unused;
 
 	WARN_ON(preemptible());
 
@@ -293,7 +293,7 @@ EXPORT_SYMBOL(giveup_altivec);
 
 void enable_kernel_altivec(void)
 {
-	unsigned long cpumsr;
+	unsigned long cpumsr __maybe_unused;
 
 	WARN_ON(preemptible());
 
