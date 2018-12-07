@@ -468,6 +468,7 @@ extern void ftrace_regs_caller(void);
 extern void ftrace_call(void);
 extern void ftrace_regs_call(void);
 extern void mcount_call(void);
+char *arch_ftrace_match_adjust(char *str, const char *search);
 
 void ftrace_modify_all_code(int command);
 
