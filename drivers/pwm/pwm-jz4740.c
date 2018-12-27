@@ -110,23 +110,27 @@ static int jz4740_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
 	struct jz4740_pwm_chip *jz4740 = to_jz4740(pwm->chip);
 	struct clk *clk = jz4740->clks[pwm->hwpwm],
 		   *parent_clk = clk_get_parent(clk);
-	unsigned long rate, period, duty;
+	unsigned long rate, new_rate, period, duty;
 	unsigned long long tmp;
-	unsigned int prescaler = 0;
 
 	rate = clk_get_rate(parent_clk);
-	tmp = (unsigned long long)rate * state->period;
-	do_div(tmp, 1000000000);
-	period = tmp;
 
-	while (period > 0xffff && prescaler < 6) {
-		period >>= 2;
-		rate >>= 2;
-		++prescaler;
+	for (;;) {
+		tmp = (unsigned long long)rate * state->period;
+		do_div(tmp, 1000000000);
+
+		if (tmp <= 0xffff)
+			break;
+
+		new_rate = clk_round_rate(clk, rate - 1);
+
+		if (new_rate < rate)
+			rate = new_rate;
+		else
+			return -EINVAL;
 	}
 
-	if (prescaler == 6)
-		return -EINVAL;
+	period = tmp;
 
 	tmp = (unsigned long long)period * state->duty_cycle;
 	do_div(tmp, state->period);
