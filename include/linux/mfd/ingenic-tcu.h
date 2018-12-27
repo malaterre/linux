@@ -53,4 +53,6 @@
 #define TCU_REG_TCNTc(c)	(TCU_REG_TCNT0 + ((c) * TCU_CHANNEL_STRIDE))
 #define TCU_REG_TCSRc(c)	(TCU_REG_TCSR0 + ((c) * TCU_CHANNEL_STRIDE))
 
+bool ingenic_tcu_pwm_can_use_chn(unsigned int channel);
+
 #endif /* __LINUX_MFD_INGENIC_TCU_H_ */
