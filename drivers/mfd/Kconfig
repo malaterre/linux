@@ -495,6 +495,14 @@ config HTC_I2CPLD
 	  This device provides input and output GPIOs through an I2C
 	  interface to one or more sub-chips.
 
+config INGENIC_TCU
+	bool "Ingenic Timer/Counter Unit (TCU) support"
+	depends on MIPS || COMPILE_TEST
+	select REGMAP_MMIO
+	help
+	  Say yes here to support the Timer/Counter Unit (TCU) IP present
+	  in the JZ47xx SoCs from Ingenic.
+
 config MFD_INTEL_QUARK_I2C_GPIO
 	tristate "Intel Quark MFD I2C GPIO"
 	depends on PCI
