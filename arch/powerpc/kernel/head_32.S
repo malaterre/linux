@@ -162,7 +162,6 @@ __after_mmu_off:
 	bl	flush_tlbs
 
 	bl	initial_bats
-	bl	load_segment_registers
 #ifdef CONFIG_KASAN
 	bl	early_hash_table
 #endif
@@ -920,6 +919,7 @@ END_MMU_FTR_SECTION_IFSET(MMU_FTR_HPTE_TABLE)
 	RFI
 /* Load up the kernel context */
 2:	bl	load_up_mmu
+	bl	load_segment_registers
 
 #ifdef CONFIG_BDI_SWITCH
 	/* Add helper information for the Abatron bdiGDB debugger.
