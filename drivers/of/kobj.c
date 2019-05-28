@@ -98,6 +98,8 @@ void __of_remove_property_sysfs(struct device_node *np, struct property *prop)
 	/* at early boot, bail here and defer setup to of_init() */
 	if (of_kset && of_node_is_attached(np))
 		__of_sysfs_remove_bin_file(np, prop);
+	else
+		printk("%s: leaking prop %s on node %pOF\n", __func__, prop->attr.attr.name, np);
 }
 
 void __of_update_property_sysfs(struct device_node *np, struct property *newprop,
