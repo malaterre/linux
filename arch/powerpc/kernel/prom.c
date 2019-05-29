@@ -629,12 +629,11 @@ static void __init early_reserve_mem(void)
 	}
 #endif /* CONFIG_BLK_DEV_INITRD */
 
-#ifdef CONFIG_PPC32
 	/* 
 	 * Handle the case where we might be booting from an old kexec
 	 * image that setup the mem_rsvmap as pairs of 32-bit values
 	 */
-	if (be64_to_cpup(reserve_map) > 0xffffffffull) {
+	if (IS_ENABLED(CONFIG_PPC32) && be64_to_cpup(reserve_map) > 0xffffffffull) {
 		u32 base_32, size_32;
 		__be32 *reserve_map_32 = (__be32 *)reserve_map;
 
@@ -650,7 +649,6 @@ static void __init early_reserve_mem(void)
 		}
 		return;
 	}
-#endif
 }
 
 #ifdef CONFIG_PPC_TRANSACTIONAL_MEM
