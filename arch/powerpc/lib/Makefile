@@ -62,5 +62,9 @@ obj-$(CONFIG_FTR_FIXUP_SELFTEST) += feature-fixups-test.o
 
 obj-$(CONFIG_ALTIVEC)	+= xor_vmx.o xor_vmx_glue.o
 CFLAGS_xor_vmx.o += -maltivec $(call cc-option,-mabi=altivec)
+ifdef CONFIG_CC_IS_CLANG
+# See https://github.com/ClangBuiltLinux/linux/issues/563
+CFLAGS_xor_vmx.o += -Wframe-larger-than=4096
+endif
 
 obj-$(CONFIG_PPC64) += $(obj64-y)
